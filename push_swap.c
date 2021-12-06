@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:05:02 by danimart          #+#    #+#             */
-/*   Updated: 2021/11/26 15:42:52 by danimart         ###   ########.fr       */
+/*   Updated: 2021/12/06 11:22:57 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,50 +14,27 @@
 
 void	error(int code)
 {
-	if (code == 2)
-		write(1, "\e[1;31mError\e[1;30m: \e[0;31mInsuficient arguments.\n\e[0m", 52);
-	else if (code == 3)
-		write(1, "\e[1;31mError\e[1;30m: \e[0;31mInput is\
- already sorted.\n\e[0m", 58);
-	else if (code == 4)
-		write(1, "\e[1;31mError\e[1;30m: \e[0;31mInput is not numeric.\n\e[0m", 55);
-	else if (code == 5)
-		write(1, "\e[1;31mError\e[1;30m: \e[0;31mInteger overflow.\n\e[0m", 55);
-	else if (code != 0)
-		write(1, "\e[1;31mError\e[1;30m: \e[0;31mUnknown.\n\e[0m", 42);
+	if (EXTENDED_ERROR)
+	{
+		if (code == 2)
+			write(1, "\e[1;31mError\e[1;30m: \e[0;31mInsuficient arguments.\n\e[0m", 60);
+		else if (code == 3)
+			write(1, "\e[1;31mError\e[1;30m: \e[0;31mInput is already sorted.\
+			\n\e[0m", 65);
+		else if (code == 4)
+			write(1, "\e[1;31mError\e[1;30m: \e[0;31mInput is not numeric.\
+			\n\e[0m", 62);
+		else if (code == 5)
+			write(1, "\e[1;31mError\e[1;30m: \e[0;31mInteger overflow.\n\e[0m", 55);
+		else if (code != 0)
+			write(1, "\e[1;31mError\e[1;30m: \e[0;31mUnknown.\n\e[0m", 46);
+	}
+	else
+		write (1, "Error\n", 6);
 	exit(code);
 }
 
-void	check_numeric(int argc, char **a)
-{
-	int		i;
-	int		j;
-	int		has_digit;
-
-	i = 1;
-	j = 0;
-	while (i <= argc)
-	{
-		has_digit = 0;
-		j = 0;
-		while (a[i][j])
-		{
-			if (ft_isdigit(a[i][j]))
-				has_digit = 1;
-			if ((a[i][j] == '-' || a[i][j] == '+') && !ft_isdigit(a[i][j + 1]))
-				error(4);
-			else if (!ft_isdigit(a[i][j]) && a[i][j] != ' '
-				&& a[i][j] == '-' && a[i][j] == '+')
-				error(4);
-			j++;
-		}
-		if (!has_digit)
-			error(4);
-		i++;
-	}
-}
-
-int	to_stack_send(long *res, char *sign, t_list *a)
+int	to_stack_send(long *res, char *sign, t_list **a)
 {
 	long	r;
 
@@ -68,51 +45,30 @@ int	to_stack_send(long *res, char *sign, t_list *a)
 	if ((*sign == '-' && r < -2147483648) || (*sign == '+' && r > 2147483647))
 		error(5);
 	*sign = '+';
-	printf("%ld\n", r);
-	a = NULL;
+	if (a == NULL)
+		*a = ft_lstnew(r);
+	else
+		ft_lstadd_back(a, ft_lstnew(r));
 	return (0);
-}
-
-void	to_stack_check(const char *str, t_list *a)
-{
-	int		i;
-	long	res;
-	char	sign;
-	int		modified;
-
-	i = 0;
-	res = 0;
-	modified = 0;
-	sign = '+';
-	while ((str[i] >= '0' && str[i] <= '9') || str[i] == ' '
-		|| str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-' || str[i] == '+')
-			sign = str[i++];
-		if (str[i] != ' ' && str[i] != '-' && str[i] != '+')
-		{
-			res = (res * 10) + (str[i] - '0');
-			modified = 1;
-		}
-		else if (!str[i] || (str[i] == ' ' && str[i] != ' '))
-			modified = to_stack_send(&res, &sign, a);
-		i++;
-	}
-	modified = to_stack_send(&res, &sign, a);
 }
 
 int	main(int argc, char **args)
 {
 	t_list	*a;
+	t_list	*b;
 	int		i;
 
 	i = 1;
 	argc--;
+	a = NULL;
+	b = NULL;
 	if (argc <= 1 || !args)
 		error(2);
 	check_numeric(argc, args);
-	a = NULL;
 	while (i <= argc)
-		to_stack_check(args[i++], a);
+		to_stack_check(args[i++], &a);
+	print_stacks(a, b); // debug
+	if (check_sorted(a))
+		error(3);
 	return (0);
 }
