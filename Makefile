@@ -6,7 +6,7 @@
 #    By: danimart <danimart@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 10:51:01 by danimart          #+#    #+#              #
-#    Updated: 2021/12/06 13:41:02 by danimart         ###   ########.fr        #
+#    Updated: 2021/12/06 15:18:24 by danimart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ $(NAME): $(LIB_O_FILES) $(PS_O_FILES)
 	@printf "\033[0m"
 clean:
 	@printf "\033[1;33m"
-	rm -rf $(O_FILES)
+	rm -rf $(PS_O_FILES) $(LIB_O_FILES)
 	@printf "\033[0m"
 fclean: clean
 	@printf "\033[1;33m"

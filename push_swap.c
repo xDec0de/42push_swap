@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:05:02 by danimart          #+#    #+#             */
-/*   Updated: 2021/12/06 13:40:20 by danimart         ###   ########.fr       */
+/*   Updated: 2021/12/06 15:09:47 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ void	error(int code)
 {
 	if (EXTENDED_ERROR)
 	{
-		if (code == 2)
+		if (code == 1)
+			write(1, "\e[1;31mError\e[1;30m: \e[0;31mDuplicated numbers.\n\e[0m", 57);
+		else if (code == 2)
 			write(1, "\e[1;31mError\e[1;30m: \e[0;31mInsuficient arguments.\n\e[0m", 60);
 		else if (code == 3)
 			write(1, "\e[1;31mError\e[1;30m: \e[0;31mInput is already sorted.\
@@ -70,6 +72,6 @@ int	main(int argc, char **args)
 	print_stacks(a, b); // debug
 	if (check_sorted(a))
 		error(3);
-	check_repeated(a);
+	check_duplicates(a);
 	return (0);
 }

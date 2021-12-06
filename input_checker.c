@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 10:57:06 by danimart          #+#    #+#             */
-/*   Updated: 2021/12/06 13:40:40 by danimart         ###   ########.fr       */
+/*   Updated: 2021/12/06 15:02:35 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	to_stack_check(const char *str, t_list **a)
 			res = (res * 10) + (str[i] - '0');
 			modified = 1;
 		}
-		else if (!str[i] || (str[i] == ' ' && str[i] != ' '))
+		else if (!str[i] || (str[i] == ' ' && str[i + 1] != ' '))
 			modified = to_stack_send(&res, &sign, a);
 		i++;
 	}
@@ -54,12 +54,11 @@ void	check_numeric(int argc, char **a)
 		j = 0;
 		while (a[i][j])
 		{
+			if (!ft_isdigit(a[i][j]) && a[i][j] != '-' && a[i][j] != '+' && a[i][j] != ' ')
+				error(4);
 			if (ft_isdigit(a[i][j]))
 				has_digit = 1;
 			if ((a[i][j] == '-' || a[i][j] == '+') && !ft_isdigit(a[i][j + 1]))
-				error(4);
-			else if (!ft_isdigit(a[i][j]) && a[i][j] != ' '
-				&& a[i][j] == '-' && a[i][j] == '+')
 				error(4);
 			j++;
 		}
@@ -87,7 +86,32 @@ int	check_sorted(t_list *a)
 	return (sorted);
 }
 
-void	check_repeated(t_list *a)
+void	check_duplicates(t_list *a)
+{
+	t_list	*tmp;
+	int		i;
+	int		j;
+	int		*list;
+
+	i = 0;
+	list = ft_calloc(ft_lstsize(a), sizeof(int));
+	tmp = a;
+	while (tmp)
+	{
+		j = 0;
+		list[i] = tmp->content;
+		while (j <= i)
+		{
+			if (list[j] == tmp->content && j != i)
+				error(1);
+			j++;
+		}
+		i++;
+		tmp = tmp->next;
+	}
+}
+
+/*void	check_duplicates(t_list *a)
 {
 	t_list	*tmp;
 	int		i;
@@ -117,4 +141,4 @@ void	check_repeated(t_list *a)
 		tmp = tmp->next;
 	}
 	printf("\e[1;30m-----------------------\n\e[0m");
-}
+}*/
