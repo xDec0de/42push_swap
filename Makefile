@@ -6,7 +6,7 @@
 #    By: danimart <danimart@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 10:51:01 by danimart          #+#    #+#              #
-#    Updated: 2021/12/06 11:52:28 by danimart         ###   ########.fr        #
+#    Updated: 2021/12/06 13:41:02 by danimart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ PS_C_FILES=push_swap.c input_checker.c \
  push_swap_debugger.c
 
 PS_O_FILES=$(PS_C_FILES:.c=.o)
-LIB_C_FILES=libft/ft_isdigit.c libft/ft_lstadd_back_bonus.c libft/ft_lstnew_bonus.c libft/ft_lstlast_bonus.c
+LIB_C_FILES=libft/ft_isdigit.c libft/ft_lstadd_back_bonus.c libft/ft_lstnew_bonus.c libft/ft_lstlast_bonus.c libft/ft_calloc.c libft/ft_bzero.c libft/ft_lstsize_bonus.c
 LIB_O_FILES=$(LIB_C_FILES:.c=.o)
 
 all: $(NAME)

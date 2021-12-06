@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:06:31 by danimart          #+#    #+#             */
-/*   Updated: 2021/12/06 11:02:31 by danimart         ###   ########.fr       */
+/*   Updated: 2021/12/06 13:40:27 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	check_numeric(int argc, char **a);
 int		check_sorted(t_list *a);
 void	error(int code);
 int		to_stack_send(long *res, char *sign, t_list **a);
+void	check_repeated(t_list *a);
 
 // debug //
 
