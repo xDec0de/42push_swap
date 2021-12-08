@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:05:02 by danimart          #+#    #+#             */
-/*   Updated: 2021/12/06 15:09:47 by danimart         ###   ########.fr       */
+/*   Updated: 2021/12/08 15:56:47 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,9 @@ int	main(int argc, char **args)
 	check_numeric(argc, args);
 	while (i <= argc)
 		to_stack_check(args[i++], &a);
-	print_stacks(a, b); // debug
 	if (check_sorted(a))
 		error(3);
 	check_duplicates(a);
+	test_swaps(a, b); // debug
 	return (0);
 }
