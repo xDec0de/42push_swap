@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:06:31 by danimart          #+#    #+#             */
-/*   Updated: 2021/12/08 15:57:51 by danimart         ###   ########.fr       */
+/*   Updated: 2021/12/15 13:01:36 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,13 @@ void	check_duplicates(t_list *a);
 void	swap_a(t_list *a, int print);
 void	swap_b(t_list *b, int print);
 void	swap_ab(t_list *a, t_list *b);
+void	push_a(t_list **a, t_list **b);
+void	push_b(t_list **a, t_list **b);
 
 // debug //
 
 void	print_stacks(t_list *a, t_list *b);
-void	test_swaps(t_list *a, t_list *b);
+void	test_swap(t_list *a, t_list *b);
+void	test_push(t_list *a, t_list *b);
 
 #endif

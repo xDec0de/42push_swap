@@ -6,14 +6,14 @@
 #    By: danimart <danimart@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 10:51:01 by danimart          #+#    #+#              #
-#    Updated: 2021/12/08 15:57:13 by danimart         ###   ########.fr        #
+#    Updated: 2021/12/15 12:29:22 by danimart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=push_swap
 CC=gcc
 CFLAGS=-Wall -Werror -Wextra
-PS_C_FILES=push_swap.c input_checker.c swap_func.c \
+PS_C_FILES=push_swap.c input_checker.c swap_func.c push_func.c \
  push_swap_debugger.c
 
 PS_O_FILES=$(PS_C_FILES:.c=.o)
