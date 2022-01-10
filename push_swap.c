@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:05:02 by danimart          #+#    #+#             */
-/*   Updated: 2021/12/16 16:32:19 by danimart         ###   ########.fr       */
+/*   Updated: 2022/01/10 15:17:56 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	main(int argc, char **args)
 	argc--;
 	a = NULL;
 	b = NULL;
-	if (argc <= 1 || !args)
+	if (argc < 1 || !args)
 		error(2);
 	check_numeric(argc, args);
 	while (i <= argc)

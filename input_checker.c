@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 10:57:06 by danimart          #+#    #+#             */
-/*   Updated: 2021/12/16 16:55:46 by danimart         ###   ########.fr       */
+/*   Updated: 2022/01/10 15:21:22 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,12 @@ void	check_duplicates(t_list *a)
 	int		j;
 	int		*list;
 
-	i = 0;
-	list = ft_calloc(ft_lstsize(a), sizeof(int));
+	i = ft_lstsize(a);
+	if(i <= 1)
+		error(2);
+	list = ft_calloc(i, sizeof(int));
 	tmp = a;
+	i = 0;
 	while (tmp)
 	{
 		j = 0;
