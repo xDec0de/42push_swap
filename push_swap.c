@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:05:02 by danimart          #+#    #+#             */
-/*   Updated: 2022/01/10 15:17:56 by danimart         ###   ########.fr       */
+/*   Updated: 2022/01/11 13:03:52 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,6 @@ int	main(int argc, char **args)
 	if (check_sorted(a))
 		error(3);
 	check_duplicates(a);
-	test_rotate(a, b); // debug
+	test_rev_rotate(a, b); // debug
 	return (0);
 }

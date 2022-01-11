@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 16:47:18 by danimart          #+#    #+#             */
-/*   Updated: 2022/01/10 16:16:52 by danimart         ###   ########.fr       */
+/*   Updated: 2022/01/11 13:03:33 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,14 +65,5 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	{
 		list = ft_lstlast(*lst);
 		list->next = new;
-	}
-}
-
-void	ft_lstadd_front(t_list **lst, t_list *new)
-{
-	if (lst && new)
-	{
-		new->next = *lst;
-		*lst = new;
 	}
 }
