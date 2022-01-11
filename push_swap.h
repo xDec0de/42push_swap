@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:06:31 by danimart          #+#    #+#             */
-/*   Updated: 2022/01/11 13:02:25 by danimart         ###   ########.fr       */
+/*   Updated: 2022/01/11 16:17:28 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <stdlib.h>
 # include <stddef.h>
 #include <stdio.h> // debug
-
 
 typedef struct s_list
 {
@@ -39,17 +38,17 @@ void	check_numeric(int argc, char **a);
 int		check_sorted(t_list *a);
 void	error(int code);
 int		to_stack_send(long *res, char *sign, t_list **a);
-void	check_duplicates(t_list *a);
+int		check_duplicates(t_list *a);
 void	swap_a(t_list *a, int print);
 void	swap_b(t_list *b, int print);
 void	swap_ab(t_list *a, t_list *b);
 void	push_a(t_list **a, t_list **b);
 void	push_b(t_list **a, t_list **b);
-void	rotate_a(t_list **a);
-void	rotate_b(t_list **a);
+void	rotate_a(t_list **a, int print);
+void	rotate_b(t_list **a, int print);
 void	rotate_ab(t_list *a, t_list *b);
-void	rev_rotate_a(t_list **a);
-void	rev_rotate_b(t_list **a);
+void	rev_rotate_a(t_list **a, int print);
+void	rev_rotate_b(t_list **a, int print);
 void	rev_rotate_ab(t_list *a, t_list *b);
 
 // debug //

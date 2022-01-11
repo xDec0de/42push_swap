@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 10:57:06 by danimart          #+#    #+#             */
-/*   Updated: 2022/01/10 15:21:22 by danimart         ###   ########.fr       */
+/*   Updated: 2022/01/11 15:51:35 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ void	check_numeric(int argc, char **a)
 		j = 0;
 		while (a[i][j])
 		{
-			if (!ft_isdigit(a[i][j]) && a[i][j] != '-' && a[i][j] != '+' && a[i][j] != ' ')
+			if (!ft_isdigit(a[i][j]) && a[i][j] != '-' && a[i][j]
+			!= '+' && a[i][j] != ' ')
 				error(4);
 			if (ft_isdigit(a[i][j]))
 				has_digit = 1;
@@ -86,19 +87,19 @@ int	check_sorted(t_list *a)
 	return (sorted);
 }
 
-void	check_duplicates(t_list *a)
+int	check_duplicates(t_list *a)
 {
 	t_list	*tmp;
 	int		i;
 	int		j;
 	int		*list;
+	int		size;
 
-	i = ft_lstsize(a);
-	if(i <= 1)
+	size = ft_lstsize(a);
+	if (size <= 1)
 		error(2);
 	list = ft_calloc(i, sizeof(int));
 	tmp = a;
-	i = 0;
 	while (tmp)
 	{
 		j = 0;
@@ -112,36 +113,5 @@ void	check_duplicates(t_list *a)
 		i++;
 		tmp = tmp->next;
 	}
+	return (size);
 }
-
-/*void	check_duplicates(t_list *a)
-{
-	t_list	*tmp;
-	int		i;
-	int		j;
-	int		*list;
-
-	i = 0;
-	list = ft_calloc(ft_lstsize(a), sizeof(int));
-	tmp = a;
-	printf("\e\e[1;30m-----------------------\n\e[0;31mDuplicate finder:\n\e[0m");
-	while (tmp)
-	{
-		j = 0;
-		printf("\e[1;30m\nIteration: \e[0;31m%d\n\e[0m", i);
-		list[i] = tmp->content;
-		while (j <= i)
-		{
-			if (list[j] == tmp->content && j != i)
-				printf("\e[1;31mD: %d\n\e[0m", list[j]);
-			else if (j != i)
-				printf("\e[0mN: %d\n", list[j]);
-			else
-				printf("\e[0;32mC: %d\n\e[0m", list[j]);
-			j++;
-		}
-		i++;
-		tmp = tmp->next;
-	}
-	printf("\e[1;30m-----------------------\n\e[0m");
-}*/
