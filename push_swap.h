@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:06:31 by danimart          #+#    #+#             */
-/*   Updated: 2021/12/16 16:57:22 by danimart         ###   ########.fr       */
+/*   Updated: 2022/01/10 16:11:24 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ t_list	*ft_lstnew(int content);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstadd_front(t_list **lst, t_list *new);
 void	to_stack_check(const char *str, t_list **a);
 void	check_numeric(int argc, char **a);
 int		check_sorted(t_list *a);
@@ -48,6 +49,9 @@ void	push_b(t_list **a, t_list **b);
 void	rotate_a(t_list **a);
 void	rotate_b(t_list **a);
 void	rotate_ab(t_list *a, t_list *b);
+void	rev_rotate_a(t_list **a);
+void	rev_rotate_b(t_list **a);
+void	rev_rotate_ab(t_list *a, t_list *b);
 
 // debug //
 

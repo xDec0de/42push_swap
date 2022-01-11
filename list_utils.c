@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 16:47:18 by danimart          #+#    #+#             */
-/*   Updated: 2021/12/16 16:48:29 by danimart         ###   ########.fr       */
+/*   Updated: 2022/01/10 16:16:52 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,13 @@ t_list	*ft_lstnew(int content)
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	int				i;
 	struct s_list	*list;
 
-	i = 1;
 	if (!lst)
-		return (0);
+		return (NULL);
 	list = lst;
 	while (list->next != NULL)
-	{
 		list = list->next;
-		i++;
-	}
 	return (list);
 }
 
@@ -70,5 +65,14 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	{
 		list = ft_lstlast(*lst);
 		list->next = new;
+	}
+}
+
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	if (lst && new)
+	{
+		new->next = *lst;
+		*lst = new;
 	}
 }

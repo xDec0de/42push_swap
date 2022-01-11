@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 10:53:32 by danimart          #+#    #+#             */
-/*   Updated: 2021/12/16 16:44:22 by danimart         ###   ########.fr       */
+/*   Updated: 2022/01/11 12:56:15 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,18 +72,16 @@ void	test_push(t_list *a, t_list *b)
 void	test_rotate(t_list *a, t_list *b)
 {
 	print_stacks(a, b);
-	rotate_a(&a);
+	rev_rotate_a(&a);
 	print_stacks(a, b);
-	rotate_a(&a);
-	print_stacks(a, b);
-	push_b(&a, &b);
+	rev_rotate_a(&a);
 	print_stacks(a, b);
 	push_b(&a, &b);
-	print_stacks(a, b);
+	push_b(&a, &b);
 	push_b(&a, &b);
 	print_stacks(a, b);
-	rotate_b(&b);
+	rev_rotate_b(&b);
 	print_stacks(a, b);
-	rotate_b(&b);
+	rev_rotate_b(&b);
 	print_stacks(a, b);
 }

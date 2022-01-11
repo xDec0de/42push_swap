@@ -6,14 +6,14 @@
 #    By: danimart <danimart@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 10:51:01 by danimart          #+#    #+#              #
-#    Updated: 2021/12/16 17:19:41 by danimart         ###   ########.fr        #
+#    Updated: 2022/01/10 16:12:02 by danimart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=push_swap
 CC=gcc
 CFLAGS=-Wall -Werror -Wextra
-C_FILES=push_swap.c input_checker.c swap_func.c push_func.c rotate_func.c str_utils.c list_utils.c \
+C_FILES=push_swap.c input_checker.c swap_func.c push_func.c rotate_func.c str_utils.c list_utils.c rev_rotate_func.c \
  push_swap_debugger.c
 
 O_FILES=$(C_FILES:.c=.o)
