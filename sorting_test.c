@@ -1,41 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_func.c                                        :+:      :+:    :+:   */
+/*   sorting_test.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/08 16:17:25 by danimart          #+#    #+#             */
-/*   Updated: 2022/01/19 17:30:55 by danimart         ###   ########.fr       */
+/*   Created: 2022/01/11 14:29:49 by danimart          #+#    #+#             */
+/*   Updated: 2022/01/19 17:36:32 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_a(t_list **a, t_list **b)
+void	test_sort(t_list **a, t_list **b, int size)
 {
-	t_list	*tmp;
-
-	write(1, "pa\n", 4);
-	if (*b)
-	{
-		tmp = ft_lstnew((*b)->content);
-		tmp->next = *a;
-		*a = tmp;
-		*b = (*b)->next;
-	}
+	if (size == 3)
+		sort_three(a, b);
 }
 
-void	push_b(t_list **a, t_list **b)
+void	sort_three(t_list **a, t_list **b)
 {
-	t_list	*tmp;
+	int	f;
+	int	s;
+	int	t;
 
-	write(1, "pb\n", 4);
-	if (*a)
+	f = (*a)->content;
+	s = (*a)->next->content;
+	t = (*a)->next->next->content;
+	if(*b)
+		printf("");
+	if(f > s && s < t && f < t)
+		swap_a(a, 1);
+	else if(f > s && s > t)
 	{
-		tmp = ft_lstnew((*a)->content);
-		tmp->next = *b;
-		*b = tmp;
-		*a = (*a)->next;
+		swap_a(a, 1);
+		rev_rotate_a(a, 1);
 	}
 }

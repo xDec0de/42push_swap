@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:05:02 by danimart          #+#    #+#             */
-/*   Updated: 2022/01/11 15:51:56 by danimart         ###   ########.fr       */
+/*   Updated: 2022/01/19 17:31:55 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int	main(int argc, char **args)
 		to_stack_check(args[i++], &a);
 	if (check_sorted(a))
 		error(3);
-	check_duplicates(a);
+	test_sort(&a, &b, check_duplicates(a));
+	print_stacks(a, b);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 10:57:06 by danimart          #+#    #+#             */
-/*   Updated: 2022/01/11 15:51:35 by danimart         ###   ########.fr       */
+/*   Updated: 2022/01/11 16:24:33 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ int	check_sorted(t_list *a)
 
 int	check_duplicates(t_list *a)
 {
-	t_list	*tmp;
 	int		i;
 	int		j;
 	int		*list;
@@ -98,20 +97,20 @@ int	check_duplicates(t_list *a)
 	size = ft_lstsize(a);
 	if (size <= 1)
 		error(2);
-	list = ft_calloc(i, sizeof(int));
-	tmp = a;
-	while (tmp)
+	list = ft_calloc(size, sizeof(int));
+	i = 0;
+	while (a)
 	{
 		j = 0;
-		list[i] = tmp->content;
+		list[i] = a->content;
 		while (j <= i)
 		{
-			if (list[j] == tmp->content && j != i)
+			if (list[j] == a->content && j != i)
 				error(1);
 			j++;
 		}
 		i++;
-		tmp = tmp->next;
+		a = a->next;
 	}
 	return (size);
 }
