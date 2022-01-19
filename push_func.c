@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 16:17:25 by danimart          #+#    #+#             */
-/*   Updated: 2022/01/19 17:30:55 by danimart         ###   ########.fr       */
+/*   Updated: 2022/01/19 18:13:41 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	push_a(t_list **a, t_list **b)
 		tmp->next = *a;
 		*a = tmp;
 		*b = (*b)->next;
+		free(tmp);
 	}
 }
 
@@ -37,5 +38,6 @@ void	push_b(t_list **a, t_list **b)
 		tmp->next = *b;
 		*b = tmp;
 		*a = (*a)->next;
+		free(tmp);
 	}
 }

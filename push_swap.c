@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:05:02 by danimart          #+#    #+#             */
-/*   Updated: 2022/01/19 17:31:55 by danimart         ###   ########.fr       */
+/*   Updated: 2022/01/19 18:04:41 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,6 @@ int	main(int argc, char **args)
 		error(3);
 	test_sort(&a, &b, check_duplicates(a));
 	print_stacks(a, b);
+	system("leaks push_swap");
 	return (0);
 }

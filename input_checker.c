@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 10:57:06 by danimart          #+#    #+#             */
-/*   Updated: 2022/01/11 16:24:33 by danimart         ###   ########.fr       */
+/*   Updated: 2022/01/19 18:06:37 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,6 @@ int	check_duplicates(t_list *a)
 		i++;
 		a = a->next;
 	}
+	free(list);
 	return (size);
 }
