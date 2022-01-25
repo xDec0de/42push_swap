@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 16:47:18 by danimart          #+#    #+#             */
-/*   Updated: 2022/01/25 16:20:42 by danimart         ###   ########.fr       */
+/*   Updated: 2022/01/25 16:26:20 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,14 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	int				i;
-	struct s_list	*list;
+	int	i;
 
 	i = 1;
 	if (!lst)
 		return (0);
-	list = lst;
-	while (list->next != NULL)
+	while (lst->next != NULL)
 	{
-		list = list->next;
+		lst = lst->next;
 		i++;
 	}
 	return (i);
