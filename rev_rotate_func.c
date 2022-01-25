@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 16:02:26 by danimart          #+#    #+#             */
-/*   Updated: 2022/01/19 18:20:09 by danimart         ###   ########.fr       */
+/*   Updated: 2022/01/25 17:52:08 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,44 +15,38 @@
 void	rev_rotate_a(t_list **a, int print)
 {
 	t_list	*tmp;
-	t_list	*cpy;
+	t_list	*last;
 
 	if (print)
 		write(1, "rra\n", 4);
-	cpy = *a;
 	if (*a && (*a)->next)
 	{
-		tmp = ft_lstnew(ft_lstlast(*a)->content);
-		while (cpy->next != NULL)
-		{
-			ft_lstadd_back(&tmp, ft_lstnew(cpy->content));
-			cpy = cpy->next;
-		}
-		ft_lstcpy(tmp, a);
-		free(tmp);
-		free(cpy);
+		tmp = *a;
+		last = ft_lstlast(*a);
+		while (tmp->next->next)
+			tmp = tmp->next;
+		tmp->next = NULL;
+		last->next = *a;
+		*a = last;
 	}
 }
 
 void	rev_rotate_b(t_list **b, int print)
 {
 	t_list	*tmp;
-	t_list	*cpy;
+	t_list	*last;
 
 	if (print)
 		write(1, "rra\n", 4);
-	cpy = *b;
 	if (*b && (*b)->next)
 	{
-		tmp = ft_lstnew(ft_lstlast(*b)->content);
-		while (cpy->next != NULL)
-		{
-			ft_lstadd_back(&tmp, ft_lstnew(cpy->content));
-			cpy = cpy->next;
-		}
-		ft_lstcpy(tmp, b);
-		free(tmp);
-		free(cpy);
+		tmp = *b;
+		last = ft_lstlast(*b);
+		while (tmp->next->next)
+			tmp = tmp->next;
+		tmp->next = NULL;
+		last->next = *b;
+		*b = last;
 	}
 }
 
