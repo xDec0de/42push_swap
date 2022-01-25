@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:06:31 by danimart          #+#    #+#             */
-/*   Updated: 2022/01/25 17:15:53 by danimart         ###   ########.fr       */
+/*   Updated: 2022/01/25 19:59:38 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	rotate_ab(t_list **a, t_list **b);
 void	rev_rotate_a(t_list **a, int print);
 void	rev_rotate_b(t_list **b, int print);
 void	rev_rotate_ab(t_list **a, t_list **b);
+void	send_lowest(t_list **from, t_list **to, char stack);
 
 // debug //
 
@@ -65,5 +66,6 @@ void	test_rev_rotate(t_list **a, t_list **b);
 
 void	test_sort(t_list **a, t_list **b, int size);
 void	sort_three(t_list **a);
+void	sort_five(t_list **a, t_list **b);
 
 #endif
