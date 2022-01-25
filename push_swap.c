@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:05:02 by danimart          #+#    #+#             */
-/*   Updated: 2022/01/19 18:04:41 by danimart         ###   ########.fr       */
+/*   Updated: 2022/01/25 16:02:41 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,13 @@ int	to_stack_send(long *res, char *sign, t_list **a)
 	return (0);
 }
 
+void	leaks(void)
+{
+	printf("\n\e[1;31mLeak report\e[1;30m:\n\e[0;36m\n");
+	system("leaks push_swap | grep leaked");
+	printf("\e[0m\n");
+}
+
 int	main(int argc, char **args)
 {
 	t_list	*a;
@@ -66,6 +73,7 @@ int	main(int argc, char **args)
 	argc--;
 	a = NULL;
 	b = NULL;
+	atexit(leaks);
 	if (argc < 1 || !args)
 		error(2);
 	check_numeric(argc, args);
@@ -75,6 +83,6 @@ int	main(int argc, char **args)
 		error(3);
 	test_sort(&a, &b, check_duplicates(a));
 	print_stacks(a, b);
-	system("leaks push_swap");
+	free(b);
 	return (0);
 }
