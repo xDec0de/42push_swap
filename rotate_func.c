@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 13:08:20 by danimart          #+#    #+#             */
-/*   Updated: 2022/01/25 17:18:00 by danimart         ###   ########.fr       */
+/*   Updated: 2022/01/25 17:31:19 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,10 @@ void	rotate_a(t_list **a, int print)
 		write(1, "ra\n", 4);
 	if (*a && (*a)->next)
 	{
-		tmp = ft_lstnew((*a)->next->content);
-		tmp->next = (*a)->next->next;
-		(*a)->next = NULL;
+		tmp = (*a);
 		ft_lstadd_back(&tmp, *a);
-		*a = tmp;
+		*a = (*a)->next;
+		tmp->next = NULL;
 	}
 }
 
@@ -36,11 +35,10 @@ void	rotate_b(t_list **b, int print)
 		write(1, "rb\n", 4);
 	if (*b && (*b)->next)
 	{
-		tmp = ft_lstnew((*b)->next->content);
-		tmp->next = (*b)->next->next;
-		(*b)->next = NULL;
+		tmp = (*b);
 		ft_lstadd_back(&tmp, *b);
-		*b = tmp;
+		*b = (*b)->next;
+		tmp->next = NULL;
 	}
 }
 
