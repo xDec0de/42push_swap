@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 14:29:49 by danimart          #+#    #+#             */
-/*   Updated: 2022/01/25 20:10:08 by danimart         ###   ########.fr       */
+/*   Updated: 2022/01/25 20:14:32 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	test_sort(t_list **a, t_list **b, int size)
 		swap_a(a, 1);
 	if (size == 3)
 		sort_three(a);
-	if (size == 5)
-		sort_five(a, b);
+	if (size == 5 || size == 4)
+		sort_five(a, b, size);
 }
 
 void	sort_three(t_list **a)
@@ -49,11 +49,13 @@ void	sort_three(t_list **a)
 		rev_rotate_a(a, 1);
 }
 
-void	sort_five(t_list **a, t_list **b)
+void	sort_five(t_list **a, t_list **b, int size)
 {
-	send_lowest(a, b, 'b');
+	if (size == 5)
+		send_lowest(a, b, 'b');
 	send_lowest(a, b, 'b');
 	sort_three(a);
-	push_a(a, b);
+	if (size == 5)
+		push_a(a, b);
 	push_a(a, b);
 }
