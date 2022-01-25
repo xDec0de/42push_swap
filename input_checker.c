@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 10:57:06 by danimart          #+#    #+#             */
-/*   Updated: 2022/01/19 18:06:37 by danimart         ###   ########.fr       */
+/*   Updated: 2022/01/25 18:25:53 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	to_stack_check(const char *str, t_list **a)
 	res = 0;
 	modified = 0;
 	sign = '+';
-	while ((str[i] >= '0' && str[i] <= '9') || str[i] == ' '
+	while (ft_isdigit(str[i]) || str[i] == ' '
 		|| str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-' || str[i] == '+')
@@ -33,11 +33,12 @@ void	to_stack_check(const char *str, t_list **a)
 			res = (res * 10) + (str[i] - '0');
 			modified = 1;
 		}
-		else if (!str[i] || (str[i] == ' ' && str[i + 1] != ' '))
+		else if (modified && (!str[i] || (str[i] == ' ' && str[i + 1] != ' ')))
 			modified = to_stack_send(&res, &sign, a);
 		i++;
 	}
-	modified = to_stack_send(&res, &sign, a);
+	if (modified)
+		modified = to_stack_send(&res, &sign, a);
 }
 
 void	check_numeric(int argc, char **a)
