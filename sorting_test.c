@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 14:29:49 by danimart          #+#    #+#             */
-/*   Updated: 2022/01/26 17:13:45 by danimart         ###   ########.fr       */
+/*   Updated: 2022/01/26 20:21:53 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	test_sort(t_list **a, t_list **b, int size)
 		sort_three(a);
 	if (size == 5 || size == 4)
 		sort_five(a, b, size);
-	else
+	if(size > 5)
 		sort_all(a, b, size);
 }
 

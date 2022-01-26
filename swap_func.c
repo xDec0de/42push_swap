@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 15:42:56 by danimart          #+#    #+#             */
-/*   Updated: 2022/01/26 19:26:11 by danimart         ###   ########.fr       */
+/*   Updated: 2022/01/26 20:22:49 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,13 @@
 void	swap_a(t_list **a, int print)
 {
 	int	first;
-	int	second;
 
 	if (print)
-		write(1, "sa\n", 3);
+		write(1, "sa\n", 4);
 	if (*a && (*a)->next)
 	{
 		first = (*a)->content;
-		second = (*a)->next->content;
-		(*a)->content = second;
+		(*a)->content = (*a)->next->content;
 		(*a)->next->content = first;
 	}
 }
@@ -31,15 +29,13 @@ void	swap_a(t_list **a, int print)
 void	swap_b(t_list **b, int print)
 {
 	int	first;
-	int	second;
 
 	if (print)
 		write(1, "sb\n", 3);
 	if (*b && (*b)->next)
 	{
 		first = (*b)->content;
-		second = (*b)->next->content;
-		(*b)->content = second;
+		(*b)->content = (*b)->next->content;
 		(*b)->next->content = first;
 	}
 }
