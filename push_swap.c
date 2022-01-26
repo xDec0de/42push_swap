@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:05:02 by danimart          #+#    #+#             */
-/*   Updated: 2022/01/26 16:53:37 by danimart         ###   ########.fr       */
+/*   Updated: 2022/01/26 19:28:08 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,7 @@
 
 void	error(int code)
 {
-	if (EXTENDED_ERROR)
-	{
-		if (code == 1)
-			write(1, "\e[1;31mError\e[1;30m: \e[0;31mDuplicated numbers.\
-			\n\e[0m", 57);
-		else if (code == 2)
-			write(1, "\e[1;31mError\e[1;30m: \e[0;31mInsuficient arguments.\
-			\n\e[0m", 60);
-		else if (code == 3)
-			write(1, "\e[1;31mError\e[1;30m: \e[0;31mInput is already sorted.\
-			\n\e[0m", 65);
-		else if (code == 4)
-			write(1, "\e[1;31mError\e[1;30m: \e[0;31mInput is not numeric.\
-			\n\e[0m", 62);
-		else if (code == 5)
-			write(1, "\e[1;31mError\e[1;30m: \e[0;31mInteger overflow.\n\e[0m", 55);
-		else if (code != 0)
-			write(1, "\e[1;31mError\e[1;30m: \e[0;31mUnknown.\n\e[0m", 46);
-	}
-	else
+	if (code != 2 && code != 3)
 		write (1, "Error\n", 6);
 	exit(code);
 }
@@ -97,7 +78,7 @@ int	main(int argc, char **args)
 	argc--;
 	a = NULL;
 	b = NULL;
-	atexit(leaks);
+	//atexit(leaks);
 	if (argc < 1 || !args)
 		error(2);
 	check_numeric(argc, args);
@@ -106,7 +87,7 @@ int	main(int argc, char **args)
 	if (check_sorted(a))
 		error(3);
 	test_sort(&a, &b, check_duplicates(a));
-	print_stacks(a, b);
+	//print_stacks(a, b);
 	free_stacks(&a, &b);
 	return (0);
 }
