@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 16:17:25 by danimart          #+#    #+#             */
-/*   Updated: 2022/01/25 18:56:34 by danimart         ###   ########.fr       */
+/*   Updated: 2022/01/26 17:01:30 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ void	push_a(t_list **a, t_list **b)
 		tmp = ft_lstnew((*b)->content);
 		tmp->next = *a;
 		*a = tmp;
-		*b = (*b)->next;
+		tmp = (*b)->next;
+		free(*b);
+		*b = tmp;
 	}
 }
 
@@ -36,6 +38,8 @@ void	push_b(t_list **a, t_list **b)
 		tmp = ft_lstnew((*a)->content);
 		tmp->next = *b;
 		*b = tmp;
-		*a = (*a)->next;
+		tmp = (*a)->next;
+		free(*a);
+		*a = tmp;
 	}
 }
