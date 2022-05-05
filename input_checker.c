@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 10:57:06 by danimart          #+#    #+#             */
-/*   Updated: 2022/01/25 18:25:53 by danimart         ###   ########.fr       */
+/*   Updated: 2022/05/05 09:03:26 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,20 +72,16 @@ void	check_numeric(int argc, char **a)
 
 int	check_sorted(t_list *a)
 {
-	int	sorted;
 	int	last;
 
-	sorted = 0;
 	while (a->next)
 	{
 		last = a->content;
-		if (a->next->content > last)
-			sorted = 1;
-		else
+		if (a->next->content < last)
 			return (0);
 		a = a->next;
 	}
-	return (sorted);
+	return (1);
 }
 
 int	check_duplicates(t_list *a)
