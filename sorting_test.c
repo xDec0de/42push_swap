@@ -6,11 +6,35 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 14:29:49 by danimart          #+#    #+#             */
-/*   Updated: 2022/01/26 20:21:53 by danimart         ###   ########.fr       */
+/*   Updated: 2022/05/19 14:09:06 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	get_low_pos(t_list	**stack)
+{
+	t_list	*tmp;
+	int		i;
+	int		lowpos;
+	int		lowest;
+
+	i = 1;
+	tmp = *stack;
+	lowpos = 1;
+	lowest = tmp->content;
+	while (tmp)
+	{
+		if (lowest > tmp->content)
+		{
+			lowpos = i;
+			lowest = tmp->content;
+		}
+		tmp = tmp->next;
+		i++;
+	}
+	return (lowpos);
+}
 
 void	test_sort(t_list **a, t_list **b, int size)
 {
@@ -51,11 +75,33 @@ void	sort_three(t_list **a)
 		rev_rotate_a(a, 1);
 }
 
+void	lowest_a_to_b(t_list **a, t_list **b)
+{
+	int	lowpos;
+	int	asize;
+	int	i;
+
+	lowpos = get_low_pos(a);
+	asize = ft_lstsize(*a);
+	if (lowpos == 2)
+		swap_a(a, 1);
+	else if (lowpos > (asize / 2))
+		while (lowpos <= asize--)
+			rev_rotate_a(a, 1);
+	else
+	{
+		i = 1;
+		while (lowpos > i++)
+			rotate_a(a, 1);
+	}
+	push_b(a, b);
+}
+
 void	sort_five(t_list **a, t_list **b, int size)
 {
 	if (size == 5)
-		send_lowest(a, b, 'b');
-	send_lowest(a, b, 'b');
+		lowest_a_to_b(a, b);
+	lowest_a_to_b(a, b);
 	sort_three(a);
 	if (size == 5)
 		push_a(a, b);
@@ -66,10 +112,13 @@ void	sort_all(t_list **a, t_list **b, int size)
 {
 	while(size > 3)
 	{
-		send_lowest(a, b, 'b');
+		if (check_sorted(*a))
+			break;
+		lowest_a_to_b(a, b);
 		size--;
 	}
-	sort_three(a);
+	if (size == 3)
+		sort_three(a);
 	while (*b)
 		push_a(a, b);
 }

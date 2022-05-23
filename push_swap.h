@@ -6,14 +6,12 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:06:31 by danimart          #+#    #+#             */
-/*   Updated: 2022/01/26 18:24:11 by danimart         ###   ########.fr       */
+/*   Updated: 2022/05/06 10:00:53 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-
-# define EXTENDED_ERROR 0
 
 # include <unistd.h>
 # include <stdlib.h>
