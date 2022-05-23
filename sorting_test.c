@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 14:29:49 by danimart          #+#    #+#             */
-/*   Updated: 2022/05/19 14:09:06 by danimart         ###   ########.fr       */
+/*   Updated: 2022/05/23 18:05:28 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,9 +108,28 @@ void	sort_five(t_list **a, t_list **b, int size)
 	push_a(a, b);
 }
 
+void	simplify_stack(t_list **a, t_list **b, int size)
+{
+	int		i;
+	t_list	*to_modify;
+
+	i = 0;
+	while (i < size)
+	{
+		to_modify = ft_lstmin_unmod(*a);
+		if (to_modify == NULL)
+			break;
+		to_modify->content = i;
+		to_modify->modified = 1;
+		i++;
+	}
+	print_stacks(*a, *b);
+}
+
 void	sort_all(t_list **a, t_list **b, int size)
 {
-	while(size > 3)
+	simplify_stack(a, b, size);
+	/*while(size > 3)
 	{
 		if (check_sorted(*a))
 			break;
@@ -120,5 +139,5 @@ void	sort_all(t_list **a, t_list **b, int size)
 	if (size == 3)
 		sort_three(a);
 	while (*b)
-		push_a(a, b);
+		push_a(a, b);*/
 }

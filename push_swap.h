@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:06:31 by danimart          #+#    #+#             */
-/*   Updated: 2022/05/06 10:00:53 by danimart         ###   ########.fr       */
+/*   Updated: 2022/05/23 17:33:05 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,21 @@
 typedef struct s_list
 {
 	int				content;
+	int				modified;
 	struct s_list	*next;
 }	t_list;
 
 int		ft_isdigit(int c);
 void	ft_bzero(void	*str, size_t n);
 void	*ft_calloc(size_t count, size_t size);
+
+// list_utils.c
 t_list	*ft_lstnew(int content);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstcpy(t_list *origin, t_list **copy);
+t_list	*ft_lstmin_unmod(t_list *lst);
+
 void	to_stack_check(const char *str, t_list **a);
 void	check_numeric(int argc, char **a);
 int		check_sorted(t_list *a);
