@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 15:42:56 by danimart          #+#    #+#             */
-/*   Updated: 2022/01/26 20:22:49 by danimart         ###   ########.fr       */
+/*   Updated: 2022/05/05 09:24:34 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	swap_a(t_list **a, int print)
 	int	first;
 
 	if (print)
-		write(1, "sa\n", 4);
+		write(1, "sa\n", 3);
 	if (*a && (*a)->next)
 	{
 		first = (*a)->content;

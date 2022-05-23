@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 13:08:20 by danimart          #+#    #+#             */
-/*   Updated: 2022/01/25 17:31:19 by danimart         ###   ########.fr       */
+/*   Updated: 2022/05/05 09:24:52 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	rotate_a(t_list **a, int print)
 	t_list	*tmp;
 
 	if (print)
-		write(1, "ra\n", 4);
+		write(1, "ra\n", 3);
 	if (*a && (*a)->next)
 	{
 		tmp = (*a);
@@ -32,7 +32,7 @@ void	rotate_b(t_list **b, int print)
 	t_list	*tmp;
 
 	if (print)
-		write(1, "rb\n", 4);
+		write(1, "rb\n", 3);
 	if (*b && (*b)->next)
 	{
 		tmp = (*b);

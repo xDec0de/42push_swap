@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 16:17:25 by danimart          #+#    #+#             */
-/*   Updated: 2022/01/26 17:09:44 by danimart         ###   ########.fr       */
+/*   Updated: 2022/05/05 09:27:01 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	push_a(t_list **a, t_list **b)
 {
 	t_list	*tmp;
 
-	write(1, "pa\n", 4);
+	write(1, "pa\n", 3);
 	if (*b)
 	{
 		tmp = ft_lstnew((*b)->content);
@@ -32,7 +32,7 @@ void	push_b(t_list **a, t_list **b)
 {
 	t_list	*tmp;
 
-	write(1, "pb\n", 4);
+	write(1, "pb\n", 3);
 	if (*a)
 	{
 		tmp = ft_lstnew((*a)->content);
