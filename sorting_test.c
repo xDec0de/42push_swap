@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 14:29:49 by danimart          #+#    #+#             */
-/*   Updated: 2022/05/23 18:05:28 by danimart         ###   ########.fr       */
+/*   Updated: 2022/05/23 20:22:30 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,17 @@ void	simplify_stack(t_list **a, t_list **b, int size)
 
 void	sort_all(t_list **a, t_list **b, int size)
 {
+	int	div_size;
+	int	range_min;
+
 	simplify_stack(a, b, size);
+	div_size = get_div_size(size);
+	range_min = size-div_size;
+	send_b_easiest(a, b, range_min, size);
+	/*while (range_min > div_size)
+	{
+		range_min -= div_size;
+	}*/
 	/*while(size > 3)
 	{
 		if (check_sorted(*a))

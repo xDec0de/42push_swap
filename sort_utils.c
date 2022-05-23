@@ -6,126 +6,86 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 19:12:52 by danimart          #+#    #+#             */
-/*   Updated: 2022/05/19 13:52:29 by danimart         ###   ########.fr       */
+/*   Updated: 2022/05/23 20:44:49 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*
-int	get_low_pos(t_list	**stack)
+int	get_div_size(int size)
 {
+	if (size <= 25)
+		return (5);
+	else if (size <= 50)
+		return (10);
+	else if (size <= 100)
+		return (20);
+	else
+		return (50);
+}
+
+void	send_value_to_b(t_list **a, t_list **b, int value, int size)
+{
+	int		pos;
 	t_list	*tmp;
-	int		i;
-	int		lowpos;
-	int		lowest;
 
-	i = 1;
-	tmp = *stack;
-	lowpos = 1;
-	lowest = tmp->content;
-	while (tmp)
+	tmp = *a;
+	pos = 0;
+	while (tmp->content != value)
 	{
-		if (lowest > tmp->content)
-		{
-			lowpos = i;
-			lowest = tmp->content;
-		}
+		pos++;
 		tmp = tmp->next;
-		i++;
 	}
-	return (lowpos);
-}
-
-void	send_b(t_list **a, t_list **b)
-{
-	int	i;
-	int	lowpos;
-
-	lowpos = get_low_pos(b);
-	i = ft_lstsize(*a);
-	if (lowpos == 2)
-		swap_b(b, 1);
-	else if (lowpos > i / 2)
-		while (lowpos <= i--)
+	if (pos > ((size / 2) + 1))
+	{
+		while (pos >= 0)
 			rev_rotate_a(a, 1);
+		push_b(a, b);
+	}
 	else
 	{
-		i = 1;
-		while (lowpos > i++)
+		while (pos > 0)
 			rotate_a(a, 1);
+		push_b(a, b);
 	}
-	push_b(a, b);
 }
-*/
 
-/*int	get_low_pos(t_list	**stack)
+int	get_easiest(t_list *lst, int min, int max, int size)
 {
-	t_list	*tmp;
-	int		i;
-	int		lowpos;
-	int		lowest;
+	int	difficulty;
+	int	last_dif;
+	int	i;
+	int	res;
 
-	i = 1;
-	tmp = *stack;
-	lowpos = 1;
-	lowest = tmp->content;
-	while (tmp)
+	res = -1;
+	i = 0;
+	difficulty = 0;
+	last_dif = -1;
+	while (lst)
 	{
-		if (lowest > tmp->content)
+		if (i > (size / 2))
+			difficulty--;
+		else
+			difficulty++;
+		if (lst->content >= min && lst->content <= max \
+			&& (last_dif == -1 || difficulty < last_dif))
 		{
-			lowpos = i;
-			lowest = tmp->content;
+			res = lst->content;
+			last_dif = difficulty;
+			printf("Found %d with difficulty %d\n", res, difficulty);
 		}
-		tmp = tmp->next;
 		i++;
+		lst = lst->next;
 	}
-	return (lowpos);
+	return (res);
 }
 
-void	send_b(t_list **a, t_list **b)
+void	send_b_easiest(t_list **a, t_list **b, int min, int max)
 {
-	int	i;
-	int	lowpos_a;
+	int	easiest;
 
-	lowpos_a = get_low_pos(a);
-	i = ft_lstsize(*a);
-	if (lowpos_a > i / 2)
-		while (lowpos_a <= i--)
-			rev_rotate_a(a, 1);
-	else
-	{
-		i = 1;
-		while (lowpos_a > i++)
-			rotate_a(a, 1);
-	}
-	push_b(a, b);
+	easiest = get_easiest(*a, min, max, ft_lstsize(*a));
+	printf("Easiest (%d-%d) is %d\n", min, max, easiest);
+	(void) b;
+	//send_value_to_b(a, b, easiest, ft_lstsize(*a));
 }
-
-void	send_a(t_list **a, t_list **b)
-{
-	int	i;
-	int	lowpos_a;
-
-	lowpos_a = get_low_pos(a);
-	i = ft_lstsize(*b);
-	if (lowpos_a > i / 2)
-		while (lowpos_a <= i--)
-			rev_rotate_b(b, 1);
-	else
-	{
-		i = 1;
-		while (lowpos_a > i++)
-			rotate_b(b, 1);
-	}
-	push_a(a, b);
-}
-
-void	send_lowest(t_list **from, t_list **to, char stack)
-{
-	if (stack == 'b')
-		send_b(from, to);
-	else
-		send_a(from, to);
-}
-*/
