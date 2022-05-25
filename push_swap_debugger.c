@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 10:53:32 by danimart          #+#    #+#             */
-/*   Updated: 2022/01/25 16:47:21 by danimart         ###   ########.fr       */
+/*   Updated: 2022/05/25 17:28:47 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,51 +36,6 @@ void	print_stacks(t_list *a, t_list *b)
 		printf("\n");
 	}
 	printf("\e[0;32m- \e[0;36m-\n\e[0;32ma \e[0;36mb\n\e[1;30m-----------------\n\e[0m");
-}
-
-/*Tests swap_a and swap_b functions.
-
-Tested with ./push_swap 3 2 1*/
-void	test_swap(t_list **a, t_list **b)
-{
-	swap_a(a, 1);
-	swap_a(a, 1);
-	swap_b(b, 1);
-	swap_b(b, 1);
-}
-
-/*Tests push_a and push_b functions.
-
-Tested with ./push_swap 3 2 1*/
-void	test_push(t_list **a, t_list **b)
-{
-	if(a)
-		printf("");
-	push_b(a, b);
-	push_b(a, b);
-	push_b(a, b);
-}
-
-/*Tests rotate_a and rotate_b functions.
-
-Tested with ./push_swap 3 2 1*/
-void	test_rotate(t_list **a, t_list **b)
-{
-	rotate_a(a, 1);
-	rotate_a(a, 1);
-	rotate_b(b, 1);
-	rotate_b(b, 1);
-}
-
-/*Tests rev_rotate_a and rev_rotate_b functions.
-
-Tested with ./push_swap 3 2 1*/
-void	test_rev_rotate(t_list **a, t_list **b)
-{
-	rev_rotate_a(a, 1);
-	rev_rotate_a(a, 1);
-	rev_rotate_b(b, 1);
-	rev_rotate_b(b, 1);
 }
 
 void	debug_duplicates(t_list *a)

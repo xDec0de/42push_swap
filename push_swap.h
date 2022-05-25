@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:06:31 by danimart          #+#    #+#             */
-/*   Updated: 2022/05/25 17:26:42 by danimart         ###   ########.fr       */
+/*   Updated: 2022/05/25 17:28:55 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,6 @@ int		rev_rotate_ab(t_list **a, t_list **b);
 // debug //
 
 void	print_stacks(t_list *a, t_list *b);
-void	test_swap(t_list **a, t_list **b);
-void	test_push(t_list **a, t_list **b);
-void	test_reverse(t_list **a, t_list **b);
-void	test_rotate(t_list **a, t_list **b);
 void	test_rev_rotate(t_list **a, t_list **b);
 
 // test //
