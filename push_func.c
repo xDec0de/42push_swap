@@ -6,13 +6,13 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 16:17:25 by danimart          #+#    #+#             */
-/*   Updated: 2022/05/05 09:27:01 by danimart         ###   ########.fr       */
+/*   Updated: 2022/05/25 17:23:53 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_a(t_list **a, t_list **b)
+int	push_a(t_list **a, t_list **b)
 {
 	t_list	*tmp;
 
@@ -26,9 +26,10 @@ void	push_a(t_list **a, t_list **b)
 		free(*b);
 		*b = tmp;
 	}
+	return (1);
 }
 
-void	push_b(t_list **a, t_list **b)
+int	push_b(t_list **a, t_list **b)
 {
 	t_list	*tmp;
 
@@ -42,4 +43,5 @@ void	push_b(t_list **a, t_list **b)
 		free(*a);
 		*a = tmp;
 	}
+	return (1);
 }

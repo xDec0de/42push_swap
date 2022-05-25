@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 19:12:52 by danimart          #+#    #+#             */
-/*   Updated: 2022/05/25 16:58:40 by danimart         ###   ########.fr       */
+/*   Updated: 2022/05/25 17:22:12 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,13 @@ void	send_value_to_b(t_list **a, t_list **b, int value, int size)
 	if (pos > (size / 2))
 	{
 		while (pos < size)
-		{
-			rev_rotate_a(a, 1);
-			pos++;
-		}
+			pos += rev_rotate_a(a, 1);
 		push_b(a, b);
 	}
 	else
 	{
 		while (pos > 0)
-		{
-			rotate_a(a, 1);
-			pos--;
-		}
+			pos -= rotate_a(a, 1);
 		push_b(a, b);
 	}
 }

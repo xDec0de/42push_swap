@@ -6,13 +6,13 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 13:08:20 by danimart          #+#    #+#             */
-/*   Updated: 2022/05/05 09:24:52 by danimart         ###   ########.fr       */
+/*   Updated: 2022/05/25 17:23:22 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate_a(t_list **a, int print)
+int	rotate_a(t_list **a, int print)
 {
 	t_list	*tmp;
 
@@ -25,9 +25,10 @@ void	rotate_a(t_list **a, int print)
 		*a = (*a)->next;
 		tmp->next = NULL;
 	}
+	return (1);
 }
 
-void	rotate_b(t_list **b, int print)
+int	rotate_b(t_list **b, int print)
 {
 	t_list	*tmp;
 
@@ -40,11 +41,13 @@ void	rotate_b(t_list **b, int print)
 		*b = (*b)->next;
 		tmp->next = NULL;
 	}
+	return (1);
 }
 
-void	rotate_ab(t_list **a, t_list **b)
+int	rotate_ab(t_list **a, t_list **b)
 {
 	write(1, "rr\n", 4);
 	rotate_a(a, 0);
 	rotate_b(b, 0);
+	return (1);
 }

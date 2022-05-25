@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:06:31 by danimart          #+#    #+#             */
-/*   Updated: 2022/05/23 20:09:27 by danimart         ###   ########.fr       */
+/*   Updated: 2022/05/25 17:26:42 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,25 @@ int		check_sorted(t_list *a);
 void	error(int code);
 int		to_stack_send(long *res, char *sign, t_list **a);
 int		check_duplicates(t_list *a);
-void	swap_a(t_list **a, int print);
-void	swap_b(t_list **b, int print);
-void	swap_ab(t_list **a, t_list **b);
-void	push_a(t_list **a, t_list **b);
-void	push_b(t_list **a, t_list **b);
-void	rotate_a(t_list **a, int print);
-void	rotate_b(t_list **a, int print);
-void	rotate_ab(t_list **a, t_list **b);
-void	rev_rotate_a(t_list **a, int print);
-void	rev_rotate_b(t_list **b, int print);
-void	rev_rotate_ab(t_list **a, t_list **b);
-void	send_lowest(t_list **from, t_list **to, char stack);
+
+// swap_func.c
+int		swap_a(t_list **a, int print);
+int		swap_b(t_list **b, int print);
+int		swap_ab(t_list **a, t_list **b);
+
+// push_func.c
+int		push_a(t_list **a, t_list **b);
+int		push_b(t_list **a, t_list **b);
+
+// rotate_func.c
+int		rotate_a(t_list **a, int print);
+int		rotate_b(t_list **a, int print);
+int		rotate_ab(t_list **a, t_list **b);
+
+// rev_rotate_func.c
+int		rev_rotate_a(t_list **a, int print);
+int		rev_rotate_b(t_list **b, int print);
+int		rev_rotate_ab(t_list **a, t_list **b);
 
 // debug //
 
