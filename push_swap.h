@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:06:31 by danimart          #+#    #+#             */
-/*   Updated: 2022/05/25 17:46:49 by danimart         ###   ########.fr       */
+/*   Updated: 2022/05/25 18:08:12 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void	sort_all(t_list **a, t_list **b, int size);
 
 // full_sort_utils.c
 void	send_b_easiest(t_list **a, t_list **b, int min, int max);
+void	send_b_to_a(t_list **a, t_list **b);
 
 // debug //
 

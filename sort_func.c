@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 14:29:49 by danimart          #+#    #+#             */
-/*   Updated: 2022/05/25 17:48:14 by danimart         ###   ########.fr       */
+/*   Updated: 2022/05/25 18:07:40 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,11 @@ void	sort_all(t_list **a, t_list **b, int size)
 	range_min = 0;
 	while (range_min < size)
 	{
-		printf("Seding values to b from %d to %d\n", range_min, range_min+div_size);
-		send_b_easiest(a, b, range_min, range_min+div_size);
+		send_b_easiest(a, b, range_min, range_min + div_size);
 		range_min += div_size;
 	}
+	send_b_to_a(a, b);
+	print_stacks(*a, *b);
 }
 
 void	sort(t_list **a, t_list **b, int size)
