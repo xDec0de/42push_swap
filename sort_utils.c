@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 19:12:52 by danimart          #+#    #+#             */
-/*   Updated: 2022/05/23 20:44:49 by danimart         ###   ########.fr       */
+/*   Updated: 2022/05/25 16:58:40 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,22 @@ void	send_value_to_b(t_list **a, t_list **b, int value, int size)
 		pos++;
 		tmp = tmp->next;
 	}
-	if (pos > ((size / 2) + 1))
+	if (pos > (size / 2))
 	{
-		while (pos >= 0)
+		while (pos < size)
+		{
 			rev_rotate_a(a, 1);
+			pos++;
+		}
 		push_b(a, b);
 	}
 	else
 	{
 		while (pos > 0)
+		{
 			rotate_a(a, 1);
+			pos--;
+		}
 		push_b(a, b);
 	}
 }
@@ -72,7 +78,6 @@ int	get_easiest(t_list *lst, int min, int max, int size)
 		{
 			res = lst->content;
 			last_dif = difficulty;
-			printf("Found %d with difficulty %d\n", res, difficulty);
 		}
 		i++;
 		lst = lst->next;
@@ -85,7 +90,10 @@ void	send_b_easiest(t_list **a, t_list **b, int min, int max)
 	int	easiest;
 
 	easiest = get_easiest(*a, min, max, ft_lstsize(*a));
-	printf("Easiest (%d-%d) is %d\n", min, max, easiest);
-	(void) b;
-	//send_value_to_b(a, b, easiest, ft_lstsize(*a));
+	while (easiest != -1)
+	{
+		send_value_to_b(a, b, easiest, ft_lstsize(*a));
+		easiest = get_easiest(*a, min, max, ft_lstsize(*a));
+	}
+	print_stacks(*a, *b);
 }
