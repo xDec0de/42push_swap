@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 19:12:52 by danimart          #+#    #+#             */
-/*   Updated: 2022/05/25 17:22:12 by danimart         ###   ########.fr       */
+/*   Updated: 2022/05/25 17:48:22 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,70 +24,65 @@ int	get_div_size(int size)
 		return (50);
 }
 
-void	send_value_to_b(t_list **a, t_list **b, int value, int size)
+void	simplify_stack(t_list **a, int size)
 {
-	int		pos;
-	t_list	*tmp;
+	int		i;
+	t_list	*to_modify;
 
-	tmp = *a;
-	pos = 0;
-	while (tmp->content != value)
+	i = 0;
+	while (i < size)
 	{
-		pos++;
+		to_modify = ft_lstmin_unmod(*a);
+		if (to_modify == NULL)
+			break ;
+		to_modify->content = i;
+		to_modify->modified = 1;
+		i++;
+	}
+}
+
+int	get_low_pos(t_list	**stack)
+{
+	t_list	*tmp;
+	int		i;
+	int		lowpos;
+	int		lowest;
+
+	i = 1;
+	tmp = *stack;
+	lowpos = 1;
+	lowest = tmp->content;
+	while (tmp)
+	{
+		if (lowest > tmp->content)
+		{
+			lowpos = i;
+			lowest = tmp->content;
+		}
 		tmp = tmp->next;
+		i++;
 	}
-	if (pos > (size / 2))
-	{
-		while (pos < size)
-			pos += rev_rotate_a(a, 1);
-		push_b(a, b);
-	}
+	return (lowpos);
+}
+
+void	lowest_a_to_b(t_list **a, t_list **b)
+{
+	int	lowpos;
+	int	asize;
+	int	i;
+
+	lowpos = get_low_pos(a);
+	asize = ft_lstsize(*a);
+	if (lowpos == 2)
+		swap_a(a, 1);
+	else if (lowpos > (asize / 2))
+		while (lowpos <= asize--)
+			rev_rotate_a(a, 1);
 	else
 	{
-		while (pos > 0)
-			pos -= rotate_a(a, 1);
-		push_b(a, b);
+		i = 1;
+		while (lowpos > i++)
+			rotate_a(a, 1);
 	}
-}
-
-int	get_easiest(t_list *lst, int min, int max, int size)
-{
-	int	difficulty;
-	int	last_dif;
-	int	i;
-	int	res;
-
-	res = -1;
-	i = 0;
-	difficulty = 0;
-	last_dif = -1;
-	while (lst)
-	{
-		if (i > (size / 2))
-			difficulty--;
-		else
-			difficulty++;
-		if (lst->content >= min && lst->content <= max \
-			&& (last_dif == -1 || difficulty < last_dif))
-		{
-			res = lst->content;
-			last_dif = difficulty;
-		}
-		i++;
-		lst = lst->next;
-	}
-	return (res);
-}
-
-void	send_b_easiest(t_list **a, t_list **b, int min, int max)
-{
-	int	easiest;
-
-	easiest = get_easiest(*a, min, max, ft_lstsize(*a));
-	while (easiest != -1)
-	{
-		send_value_to_b(a, b, easiest, ft_lstsize(*a));
-		easiest = get_easiest(*a, min, max, ft_lstsize(*a));
-	}
-	print_stacks(*a, *b);
+	push_b(a, b);
 }

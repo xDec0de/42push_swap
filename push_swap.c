@@ -6,26 +6,11 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:05:02 by danimart          #+#    #+#             */
-/*   Updated: 2022/05/19 13:13:16 by danimart         ###   ########.fr       */
+/*   Updated: 2022/05/25 17:38:05 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/* B     | A
- *       | 6 1 7 8 9 4 2 5 3
- *       | 1 6 7 8 9 4 2 5 3
- *     1 | 6 7 8 9 4 2 5 3
- *     1 | 3 6 7 8 9 4 2 5
- *     1 | 5 3 6 7 8 9 4 2
- *   2 1 | 5 3 6 7 8 9 4
- *   2 1 | 3 5 6 7 8 9 4
- * 3 2 1 | 5 6 7 8 9 4
- * 3 2 1 | 4 5 6 7 8 9 - SORTED
- *   2 1 | 3 4 5 6 7 8 9
- *     1 | 2 3 4 5 6 7 8 9
- *       | 1 2 3 4 5 6 7 8 9 - DONE
-*/
 
 void	error(int code)
 {
@@ -101,8 +86,7 @@ int	main(int argc, char **args)
 		to_stack_check(args[i++], &a);
 	if (check_sorted(a))
 		error(3);
-	test_sort(&a, &b, check_duplicates(a));
-	//print_stacks(a, b);
+	sort(&a, &b, check_duplicates(a));
 	free_stacks(&a, &b);
 	return (0);
 }
