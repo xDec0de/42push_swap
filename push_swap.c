@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:05:02 by danimart          #+#    #+#             */
-/*   Updated: 2022/05/25 17:38:05 by danimart         ###   ########.fr       */
+/*   Updated: 2025/03/07 17:17:28 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,6 @@ int	to_stack_send(long *res, char *sign, t_list **a)
 	return (0);
 }
 
-void	leaks(void)
-{
-	printf("\n\e[1;31mLeak report\e[1;30m:\n\e[0;36m\n");
-	system("leaks push_swap | grep leaked");
-	printf("\e[0m\n");
-}
-
 int	main(int argc, char **args)
 {
 	t_list	*a;
@@ -78,7 +71,6 @@ int	main(int argc, char **args)
 	argc--;
 	a = NULL;
 	b = NULL;
-	//atexit(leaks);
 	if (argc < 1 || !args)
 		error(2);
 	check_numeric(argc, args);
