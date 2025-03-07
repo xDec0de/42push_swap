@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:05:02 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/07 17:17:28 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/07 18:00:05 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	to_stack_send(long *res, char *sign, t_list **a)
 	if (*sign == '-')
 		r *= -1;
 	*res = 0;
-	if ((*sign == '-' && r < -2147483648) || (*sign == '+' && r > 2147483647))
+	if ((*sign == '-' && r < INT_MIN) || (*sign == '+' && r > INT_MAX))
 		error(5);
 	*sign = '+';
 	if (a == NULL)
@@ -67,15 +67,17 @@ int	main(int argc, char **args)
 	t_list	*b;
 	int		i;
 
-	i = 1;
-	argc--;
 	a = NULL;
 	b = NULL;
-	if (argc < 1 || !args)
+	if (argc < 2)
 		error(2);
 	check_numeric(argc, args);
-	while (i <= argc)
-		to_stack_check(args[i++], &a);
+	i = 1;
+	while (i < argc)
+	{
+		to_stack_check(args[i], &a);
+		i++;
+	}
 	if (check_sorted(a))
 		error(3);
 	sort(&a, &b, check_duplicates(a));

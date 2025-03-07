@@ -6,15 +6,14 @@
 #    By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 10:51:01 by danimart          #+#    #+#              #
-#    Updated: 2025/03/07 17:10:18 by daniema3         ###   ########.fr        #
+#    Updated: 2025/03/07 17:56:24 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
-SANITIZE = -g3 -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra -g3
 
 SRCS =	push_swap.c\
 		input_checker.c\
@@ -41,9 +40,6 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
-
-sanitize: $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(SANITIZE)
 
 re: fclean $(NAME)
 

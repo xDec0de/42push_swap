@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_checker.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 10:57:06 by danimart          #+#    #+#             */
-/*   Updated: 2022/05/05 09:03:26 by danimart         ###   ########.fr       */
+/*   Updated: 2025/03/07 18:41:47 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	check_numeric(int argc, char **a)
 
 	i = 1;
 	j = 0;
-	while (i <= argc)
+	while (i < argc)
 	{
 		has_digit = 0;
 		j = 0;
