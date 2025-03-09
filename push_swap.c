@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:05:02 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/07 18:00:05 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/09 15:34:24 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,28 +19,26 @@ void	error(int code)
 	exit(code);
 }
 
-void	free_stacks(t_list **a, t_list**b)
+void	free_stacks(t_list *a, t_list*b)
 {
-	struct s_list	*list;
+	t_list	*tmp;
 
-	if (!a)
-		return ;
-	list = *a;
-	while (list)
+	tmp = a;
+	while (tmp != NULL)
 	{
-		free(list);
-		list = list->next;
+		tmp = a->next;
+		free(a);
+		a = tmp;
 	}
-	*a = NULL;
-	if (!b)
-		return ;
-	list = *b;
-	while (list)
+	a = NULL;
+	tmp = b;
+	while (tmp != NULL)
 	{
-		free(list);
-		list = list->next;
+		tmp = b->next;
+		free(b);
+		b = tmp;
 	}
-	*b = NULL;
+	b = NULL;
 }
 
 int	to_stack_send(long *res, char *sign, t_list **a)
@@ -81,6 +79,6 @@ int	main(int argc, char **args)
 	if (check_sorted(a))
 		error(3);
 	sort(&a, &b, check_duplicates(a));
-	free_stacks(&a, &b);
+	free_stacks(a, b);
 	return (0);
 }
