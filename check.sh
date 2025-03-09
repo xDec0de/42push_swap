@@ -6,7 +6,7 @@
 #    By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/09 20:02:31 by daniema3          #+#    #+#              #
-#    Updated: 2025/03/09 23:52:49 by daniema3         ###   ########.fr        #
+#    Updated: 2025/03/09 23:54:38 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,6 @@ echo "Made $MOVEMENTS movement(s) to sort $NUM_COUNT numbers"
 echo "Checker result: $CHECKER_RESULT"
 
 # Generate files for the online visualizator
-mkdir check
+mkdir -p check
 echo "$ARG" > check/numbers
 echo "$OPERATIONS" > check/operations
