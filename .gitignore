@@ -38,7 +38,10 @@
 
 # Project specific executable & checker
 push_swap
+
+# Checker
 checker_linux
+check/*
 
 # Debug files
 *.dSYM/

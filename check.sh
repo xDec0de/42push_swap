@@ -6,7 +6,7 @@
 #    By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/09 20:02:31 by daniema3          #+#    #+#              #
-#    Updated: 2025/03/09 21:46:31 by daniema3         ###   ########.fr        #
+#    Updated: 2025/03/09 23:52:49 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,10 +45,15 @@ while [ ${#numbers[@]} -lt $NUM_COUNT ]; do
 done
 
 ARG=$(IFS=" "; echo "${numbers[*]}")
-OUTPUT=$(./push_swap $ARG 2>/dev/null)
+OPERATIONS=$(./push_swap $ARG 2>/dev/null)
 MOVEMENTS=$(echo "$OUTPUT" | wc -l)
-CHECKER_RESULT=$(echo "$OUTPUT" | ./checker_linux $ARG)
+CHECKER_RESULT=$(echo "$OPERATIONS" | ./checker_linux $ARG)
 
 echo "Numbers: $ARG"
 echo "Made $MOVEMENTS movement(s) to sort $NUM_COUNT numbers"
 echo "Checker result: $CHECKER_RESULT"
+
+# Generate files for the online visualizator
+mkdir check
+echo "$ARG" > check/numbers
+echo "$OPERATIONS" > check/operations
