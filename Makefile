@@ -6,7 +6,7 @@
 #    By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 10:51:01 by danimart          #+#    #+#              #
-#    Updated: 2025/03/07 17:56:24 by daniema3         ###   ########.fr        #
+#    Updated: 2025/03/09 19:36:24 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra -g3
 
 SRCS =	push_swap.c\
+		stack_manager.c\
 		input_checker.c\
 		swap_func.c\
 		push_func.c\

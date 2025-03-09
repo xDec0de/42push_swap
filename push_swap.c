@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:05:02 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/09 15:34:24 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/09 19:30:52 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,28 +17,6 @@ void	error(int code)
 	if (code != 2 && code != 3)
 		write (1, "Error\n", 6);
 	exit(code);
-}
-
-void	free_stacks(t_list *a, t_list*b)
-{
-	t_list	*tmp;
-
-	tmp = a;
-	while (tmp != NULL)
-	{
-		tmp = a->next;
-		free(a);
-		a = tmp;
-	}
-	a = NULL;
-	tmp = b;
-	while (tmp != NULL)
-	{
-		tmp = b->next;
-		free(b);
-		b = tmp;
-	}
-	b = NULL;
 }
 
 int	to_stack_send(long *res, char *sign, t_list **a)
@@ -65,11 +43,11 @@ int	main(int argc, char **args)
 	t_list	*b;
 	int		i;
 
-	a = NULL;
-	b = NULL;
 	if (argc < 2)
-		error(2);
+		exit(ERR_ARGC);
 	check_numeric(argc, args);
+	a = get_a(init_stack_element(NULL));
+	b = get_b(init_stack_element(NULL));
 	i = 1;
 	while (i < argc)
 	{
@@ -77,8 +55,7 @@ int	main(int argc, char **args)
 		i++;
 	}
 	if (check_sorted(a))
-		error(3);
+		exit_ps(a, b, ERR_ALREADY_SORTED);
 	sort(&a, &b, check_duplicates(a));
-	free_stacks(a, b);
-	return (0);
+	exit_ps(a, b, EXIT_SUCCESS);
 }

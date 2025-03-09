@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:06:31 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/07 17:48:43 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/09 19:36:19 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,87 @@
 # include <stdlib.h>
 # include <stddef.h>
 # include <limits.h>
+# include <stdbool.h>
 #include <stdio.h> // debug
 
 typedef struct s_list
 {
 	int				content;
-	int				modified;
+	bool			modified;
 	struct s_list	*next;
-}	t_list;
+}				t_list;
 
 // push_swap.c
 void	error(int code);
 int		to_stack_send(long *res, char *sign, t_list **a);
+
+/*
+ - Stack manager
+ */
+
+/**
+ * @brief `static` getter for stack a. If `init`
+ * is not `NULL`, the `static` variable conatined on
+ * this function will be set to `init`. Said variable
+ * is always returned.
+ * 
+ * @param init The new value of stack a. Use `NULL` to
+ * get the already stored value of stack a.
+ * 
+ * @return The stored value of stack a.
+ */
+t_list	*get_a(t_list *init);
+
+/**
+ * @brief `static` getter for stack b. If `init`
+ * is not `NULL`, the `static` variable conatined on
+ * this function will be set to `init`. Said variable
+ * is always returned.
+ * 
+ * @param init The new value of stack b. Use `NULL` to
+ * get the already stored value of stack b.
+ * 
+ * @return The stored value of stack b.
+ */
+t_list	*get_b(t_list *init);
+
+/**
+ * @brief Initializes a stack element (t_list) with the
+ * default values. Program will `exit` with error code
+ * `MALLOC_ERR` if `malloc` fails.
+ * 
+ * @param next The `next` element on the new struct. Can
+ * be `NULL`.
+ * 
+ * @return A new `t_list` initialized with the default values
+ * and `next` set as the next element of the list.
+ */
+t_list	*init_stack_element(t_list *next);
+
+/**
+ * @brief Frees all elements of both stacks. Stacks can be
+ * `NULL`, the function will just skip them. The pointer
+ * of each stack must be a pointer to its first element,
+ * otherwise, leaks will be produced.
+ * 
+ * @param a A pointer to the first element of stack `a`.
+ * @param b A pointer to the first element of stack `b`.
+ */
+void	free_stacks(t_list *a, t_list*b);
+
+/**
+ * @brief Handles program exit. Both stacks `a` and `b`
+ * are safely freed as specified by `free_stacks`.
+ * "Error\\n" will be written on `STDOUT_FILENO` if
+ * the `exit_code` requires it.
+ * 
+ * @param a A pointer to the first element of stack `a`.
+ * @param b A pointer to the first element of stack `b`.
+ * @param exit_code The `exit` code of the program. Used
+ * to indicate what error happened or if the program exited
+ * with a successful execution.
+ */
+void	exit_ps(t_list *a, t_list *b, int exit_code);
 
 // str_utils.c
 int		ft_isdigit(int c);
@@ -86,5 +155,16 @@ void	send_b_to_a(t_list **a, t_list **b);
 
 void	print_stacks(t_list *a, t_list *b);
 void	test_rev_rotate(t_list **a, t_list **b);
+
+/* 
+ - Exit / error codes
+ */
+
+# define ERR_ARGC 1
+
+# define ERR_ALREADY_SORTED 2
+
+/** Malloc failed. Program exits with an error. */
+# define ERR_MALLOC 3
 
 #endif
