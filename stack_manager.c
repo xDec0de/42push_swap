@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 15:36:24 by daniema3          #+#    #+#             */
-/*   Updated: 2025/03/09 19:36:29 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/10 00:45:47 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_list	*get_a(t_list *init)
 {
 	static t_list *a = NULL;
 
-	if (a = NULL)
+	if (init != NULL)
 		a = init;
 	return (a);
 }
@@ -30,13 +30,11 @@ t_list	*get_b(t_list *init)
 	return (b);
 }
 
-t_list	*init_stack_element(t_list *next);
+t_list	*init_stack_element(t_list *next)
 {
 	t_list	*stack;
 
-	stack = malloc(sizeof(t_list));
-	if (stack = NULL)
-		exit_ps(get_a(NULL), get_b(NULL), ERR_MALLOC);
+	stack = ps_malloc(sizeof(t_list));
 	stack->content = 0;
 	stack->modified = false;
 	stack->next = next;

@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:06:31 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/09 19:36:19 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/10 00:44:33 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,6 +155,21 @@ void	send_b_to_a(t_list **a, t_list **b);
 
 void	print_stacks(t_list *a, t_list *b);
 void	test_rev_rotate(t_list **a, t_list **b);
+
+/*
+ - Utils
+ */
+
+/**
+ * @brief `malloc` wrapper used to exit the program
+ * and free both stacks if `malloc` fails. Other than
+ * that, this function is simply `malloc`.
+ * 
+ * @param size The amount of bytes to allocate.
+ * 
+ * @return A pointer to the allocated memory.
+ */
+void	*ps_malloc(int size);
 
 /* 
  - Exit / error codes
