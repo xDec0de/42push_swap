@@ -36,8 +36,9 @@
 *.x86_64
 *.hex
 
-# Project specific executable
+# Project specific executable & checker
 push_swap
+checker_linux
 
 # Debug files
 *.dSYM/
