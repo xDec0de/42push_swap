@@ -6,7 +6,7 @@
 #    By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/09 20:02:31 by daniema3          #+#    #+#              #
-#    Updated: 2025/03/09 23:54:38 by daniema3         ###   ########.fr        #
+#    Updated: 2025/03/09 23:55:27 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ done
 
 ARG=$(IFS=" "; echo "${numbers[*]}")
 OPERATIONS=$(./push_swap $ARG 2>/dev/null)
-MOVEMENTS=$(echo "$OUTPUT" | wc -l)
+MOVEMENTS=$(echo "$OPERATIONS" | wc -l)
 CHECKER_RESULT=$(echo "$OPERATIONS" | ./checker_linux $ARG)
 
 echo "Numbers: $ARG"
