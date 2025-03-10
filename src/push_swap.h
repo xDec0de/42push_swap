@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:06:31 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/10 03:33:34 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/10 09:28:57 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,6 @@ void	free_stacks(t_list *a, t_list*b);
 void	exit_ps(t_list *a, t_list *b, int exit_code);
 
 // str_utils.c
-int		ft_isdigit(int c);
 void	ft_bzero(void	*str, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 
@@ -159,6 +158,8 @@ void	send_b_to_a(t_list **a, t_list **b);
 /*
  - Utils
  */
+
+bool	ps_isdigit(char ch);
 
 /**
  * @brief `malloc` wrapper used to exit the program

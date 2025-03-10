@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 10:57:06 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/07 18:41:47 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/10 09:30:42 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	to_stack_check(const char *str, t_list **a)
 	res = 0;
 	modified = 0;
 	sign = '+';
-	while (ft_isdigit(str[i]) || str[i] == ' '
+	while (ps_isdigit(str[i]) || str[i] == ' '
 		|| str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-' || str[i] == '+')
@@ -55,12 +55,12 @@ void	check_numeric(int argc, char **a)
 		j = 0;
 		while (a[i][j])
 		{
-			if (!ft_isdigit(a[i][j]) && a[i][j] != '-' && a[i][j]
+			if (!ps_isdigit(a[i][j]) && a[i][j] != '-' && a[i][j]
 			!= '+' && a[i][j] != ' ')
 				error(4);
-			if (ft_isdigit(a[i][j]))
+			if (ps_isdigit(a[i][j]))
 				has_digit = 1;
-			if ((a[i][j] == '-' || a[i][j] == '+') && !ft_isdigit(a[i][j + 1]))
+			if ((a[i][j] == '-' || a[i][j] == '+') && !ps_isdigit(a[i][j + 1]))
 				error(4);
 			j++;
 		}
