@@ -6,7 +6,7 @@
 #    By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/09 20:02:31 by daniema3          #+#    #+#              #
-#    Updated: 2025/03/10 16:08:01 by daniema3         ###   ########.fr        #
+#    Updated: 2025/03/10 16:44:53 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,29 +49,35 @@ OPERATIONS=$(./push_swap $ARG 2>/dev/null)
 MOVEMENTS=$(echo "$OPERATIONS" | wc -l)
 CHECKER_RESULT=$(echo "$OPERATIONS" | ./checker_linux $ARG)
 
-echo "Numbers: $ARG"
-echo "Made $MOVEMENTS movement(s) to sort $NUM_COUNT numbers"
-echo "Checker result: $CHECKER_RESULT"
+printf "\e[1;34mNumber amount\e[0;30m: \e[1;35m$NUM_COUNT\e[0m\n"
+
+if ((CHECKER_RESULT == "OK")); then
+	printf "\e[1;34mChecker result\e[0;30m: \e[1;32mOK\e[0m\n"
+else
+	printf "\e[1;34mChecker result\e[0;30m: \e[1;31mKO\e[0m\n"
+fi
 
 # Generate files for the online visualizator
 mkdir -p check
 echo "$ARG" > check/numbers
 echo "$OPERATIONS" > check/operations
 
-# Check movement amount if number count is 100 (Subject requirements)
+MAX_MOVEMENTS=0
+
 if ((NUM_COUNT == 100)); then
-	if ((MOVEMENTS > 700)); then
-		echo "Movement amount: KO"
-	else
-		echo "Movement amount: OK"
-	fi
+	MAX_MOVEMENTS=700
+elif ((NUM_COUNT == 500)); then
+	MAX_MOVEMENTS=5500
 fi
 
-# Check movement amount if number count is 500 (Subject requirements)
-if ((NUM_COUNT == 500)); then
-	if ((MOVEMENTS > 5500)); then
-		echo "Movement amount: KO"
+printf "\e[1;34mMovements\e[0;30m: "
+
+if ((MAX_MOVEMENTS != 0)); then
+	if ((MOVEMENTS <= MAX_MOVEMENTS)); then
+		printf "\e[1;32mOK \e[1;30m[\e[1;33m$MOVEMENTS\e[1;30m/\e[1;39m$MAX_MOVEMENTS\e[1;30m]\e[0m\n"
 	else
-		echo "Movement amount: OK"
+		printf "\e[1;31mKO \e[1;30m[\e[1;33m$MOVEMENTS\e[1;30m/\e[1;39m$MAX_MOVEMENTS\e[1;30m]\e[0m\n"
 	fi
+else
+	printf "\e[1;33m$MOVEMENTS\e[0m\n"
 fi
