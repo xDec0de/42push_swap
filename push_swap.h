@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:06:31 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/10 00:44:33 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/10 03:25:46 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <stddef.h>
 # include <limits.h>
 # include <stdbool.h>
-#include <stdio.h> // debug
 
 typedef struct s_list
 {
@@ -150,11 +149,6 @@ void	sort_all(t_list **a, t_list **b, int size);
 // full_sort_utils.c
 void	send_b_easiest(t_list **a, t_list **b, int min, int max);
 void	send_b_to_a(t_list **a, t_list **b);
-
-// debug //
-
-void	print_stacks(t_list *a, t_list *b);
-void	test_rev_rotate(t_list **a, t_list **b);
 
 /*
  - Utils

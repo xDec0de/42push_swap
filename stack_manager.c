@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 15:36:24 by daniema3          #+#    #+#             */
-/*   Updated: 2025/03/10 00:45:47 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/10 02:43:52 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_list	*get_a(t_list *init)
 {
-	static t_list *a = NULL;
+	static t_list	*a = NULL;
 
 	if (init != NULL)
 		a = init;
@@ -23,7 +23,7 @@ t_list	*get_a(t_list *init)
 
 t_list	*get_b(t_list *init)
 {
-	static t_list *b = NULL;
+	static t_list	*b = NULL;
 
 	if (init != NULL)
 		b = init;

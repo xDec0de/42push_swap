@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_func.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 14:29:49 by danimart          #+#    #+#             */
-/*   Updated: 2022/05/25 18:07:40 by danimart         ###   ########.fr       */
+/*   Updated: 2025/03/10 03:15:28 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ void	sort_all(t_list **a, t_list **b, int size)
 		range_min += div_size;
 	}
 	send_b_to_a(a, b);
-	print_stacks(*a, *b);
 }
 
 void	sort(t_list **a, t_list **b, int size)
