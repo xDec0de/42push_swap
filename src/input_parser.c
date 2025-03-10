@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 09:37:14 by daniema3          #+#    #+#             */
-/*   Updated: 2025/03/10 15:35:34 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/10 17:55:45 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,30 +52,19 @@ t_list	*arg_to_lst(char *arg)
 
 void	check_duplicates(t_list *a)
 {
-	int		i;
-	int		j;
-	int		*list;
-	int		size;
+	t_list	*tmp;
 
-	size = ps_lstsize(a);
-	if (size <= 1)
-		ps_exit(a, NULL, ERR_ALREADY_SORTED);
-	list = ft_calloc(size, sizeof(int)); // TODO: Leaks, iterating with a tmp pointer should work.
-	i = 0;
-	while (a)
+	while (a != NULL)
 	{
-		j = 0;
-		list[i] = a->content;
-		while (j <= i)
+		tmp = a->next;
+		while (tmp != NULL)
 		{
-			if (list[j] == a->content && j != i)
+			if (tmp->content == a->content)
 				ps_exit(a, NULL, ERR_DUPLICATES);
-			j++;
+			tmp = tmp->next;
 		}
-		i++;
 		a = a->next;
 	}
-	free(list);
 }
 
 t_list *input_to_a(int argc, char **args)
