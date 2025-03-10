@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_malloc.c                                        :+:      :+:    :+:   */
+/*   stack_provider.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/09 21:51:31 by daniema3          #+#    #+#             */
-/*   Updated: 2025/03/10 10:04:20 by daniema3         ###   ########.fr       */
+/*   Created: 2025/03/10 09:49:50 by daniema3          #+#    #+#             */
+/*   Updated: 2025/03/10 09:51:11 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	*ps_malloc(int size)
+t_list	*get_a(t_list *init)
 {
-	void	*result;
+	static t_list	*a = NULL;
 
-	result = malloc(size);
-	if (result == NULL)
-		ps_exit(get_a(NULL), get_b(NULL), ERR_MALLOC);
-	return (result);
+	if (init != NULL)
+		a = init;
+	return (a);
+}
+
+t_list	*get_b(t_list *init)
+{
+	static t_list	*b = NULL;
+
+	if (init != NULL)
+		b = init;
+	return (b);
 }

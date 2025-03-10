@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_malloc.c                                        :+:      :+:    :+:   */
+/*   ps_lst_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/09 21:51:31 by daniema3          #+#    #+#             */
-/*   Updated: 2025/03/10 10:04:20 by daniema3         ###   ########.fr       */
+/*   Created: 2025/03/10 09:53:39 by daniema3          #+#    #+#             */
+/*   Updated: 2025/03/10 09:58:12 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
-void	*ps_malloc(int size)
+t_list	*ps_lst_init(int content, t_list *next)
 {
-	void	*result;
+	t_list	*stack;
 
-	result = malloc(size);
-	if (result == NULL)
-		ps_exit(get_a(NULL), get_b(NULL), ERR_MALLOC);
-	return (result);
+	stack = ps_malloc(sizeof(t_list));
+	stack->content = content;
+	stack->modified = false;
+	stack->next = next;
+	return (stack);
 }

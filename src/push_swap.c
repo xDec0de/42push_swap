@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:05:02 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/09 19:30:52 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/10 10:05:30 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ int	main(int argc, char **args)
 	if (argc < 2)
 		exit(ERR_ARGC);
 	check_numeric(argc, args);
-	a = get_a(init_stack_element(NULL));
-	b = get_b(init_stack_element(NULL));
 	i = 1;
 	while (i < argc)
 	{
@@ -55,7 +53,7 @@ int	main(int argc, char **args)
 		i++;
 	}
 	if (check_sorted(a))
-		exit_ps(a, b, ERR_ALREADY_SORTED);
+		ps_exit(a, b, ERR_ALREADY_SORTED);
 	sort(&a, &b, check_duplicates(a));
-	exit_ps(a, b, EXIT_SUCCESS);
+	ps_exit(a, b, EXIT_SUCCESS);
 }

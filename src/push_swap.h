@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:06:31 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/10 09:28:57 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/10 10:04:53 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	error(int code);
 int		to_stack_send(long *res, char *sign, t_list **a);
 
 /*
- - Stack manager
+ - Stack provider
  */
 
 /**
@@ -66,6 +66,10 @@ t_list	*get_a(t_list *init);
  */
 t_list	*get_b(t_list *init);
 
+/*
+ - List utility
+ */
+
 /**
  * @brief Initializes a stack element (t_list) with the
  * default values. Program will `exit` with error code
@@ -77,7 +81,11 @@ t_list	*get_b(t_list *init);
  * @return A new `t_list` initialized with the default values
  * and `next` set as the next element of the list.
  */
-t_list	*init_stack_element(t_list *next);
+t_list	*ps_lst_init(int content, t_list *next);
+
+/*
+ - Exit utility
+ */
 
 /**
  * @brief Frees all elements of both stacks. Stacks can be
@@ -102,7 +110,7 @@ void	free_stacks(t_list *a, t_list*b);
  * to indicate what error happened or if the program exited
  * with a successful execution.
  */
-void	exit_ps(t_list *a, t_list *b, int exit_code);
+void	ps_exit(t_list *a, t_list *b, int exit_code);
 
 // str_utils.c
 void	ft_bzero(void	*str, size_t n);

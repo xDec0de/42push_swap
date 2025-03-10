@@ -6,7 +6,7 @@
 #    By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 10:51:01 by danimart          #+#    #+#              #
-#    Updated: 2025/03/10 09:26:48 by daniema3         ###   ########.fr        #
+#    Updated: 2025/03/10 10:02:20 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,10 +18,20 @@ CFLAGS = -Wall -Werror -Wextra -g3
 SRC_DIR = ./src
 OBJ_DIR = ./objs
 
-SRCS =	util/ps_isdigit.c\
+# > ~ List utilities
+
+SRCS =	util/lst/ps_lst_init.c
+
+# > ~ General utilities
+
+SRCS +=	util/ps_exit.c\
+		util/ps_isdigit.c\
 		util/ps_malloc.c\
-		push_swap.c\
-		stack_manager.c\
+		util/stack_provider.c\
+
+# > ~ Main project files
+
+SRCS +=	push_swap.c\
 		input_checker.c\
 		swap_func.c\
 		push_func.c\
