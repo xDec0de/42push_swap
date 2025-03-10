@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:06:31 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/10 03:29:51 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/10 03:33:34 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /* unistd - Used for write */
 # include <unistd.h>
 
-/* stdlib - Used for malloc */
+/* stdlib - Used for malloc & free */
 # include <stdlib.h>
 
 /* limits - Used for min/max value macros */
@@ -175,11 +175,16 @@ void	*ps_malloc(int size);
  - Exit / error codes
  */
 
+/** Error: Invalid argument count. No numbers to sort were provided. */
 # define ERR_ARGC 1
 
-# define ERR_ALREADY_SORTED 2
+/** Error: Program input is not numeric. */
+# define ERR_INPUT_NOT_NUMERIC 2
 
-/** Malloc failed. Program exits with an error. */
+/** Error: Malloc failed. */
 # define ERR_MALLOC 3
+
+/** Error: Provided input is already sorted. */
+# define ERR_ALREADY_SORTED 4
 
 #endif

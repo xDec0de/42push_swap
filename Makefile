@@ -6,7 +6,7 @@
 #    By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 10:51:01 by danimart          #+#    #+#              #
-#    Updated: 2025/03/10 03:14:59 by daniema3         ###   ########.fr        #
+#    Updated: 2025/03/10 03:58:33 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,9 @@ NAME = push_swap
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -g3
+
+SRC_DIR = ./src
+OBJ_DIR = ./objs
 
 SRCS =	util/ps_malloc.c\
 		push_swap.c\
@@ -29,12 +32,18 @@ SRCS =	util/ps_malloc.c\
 		sort_utils.c\
 		full_sort_utils.c
 
-OBJS = $(SRCS:.c=.o)
+SRCS := $(addprefix $(SRC_DIR)/, $(SRCS))
+
+OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJS)
