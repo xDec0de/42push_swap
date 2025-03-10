@@ -6,7 +6,7 @@
 #    By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 10:51:01 by danimart          #+#    #+#              #
-#    Updated: 2025/03/10 06:20:43 by daniema3         ###   ########.fr        #
+#    Updated: 2025/03/10 06:25:03 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,26 +40,26 @@ SRCS_AMOUNT = $(words $(SRCS))
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
-	@echo -n "\r⏳ \e[0;33mCompiling $(notdir $<)...							"
+	@echo -n "\r⏳ \e[0;33mCompiling $(notdir $<)                               "
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-	@echo -n "\r✅ \e[1;36mpush_swap \e[0;32msuccessfully compiled!			"
+	@echo -n "\r✅ \e[1;36mpush_swap \e[0;32msuccessfully compiled!             "
 	@echo 
 
 clean:
-	@echo -n "\r⏳ \e[0;33mRemoving $(NAME) objs."
+	@echo -n "\r⏳ \e[0;33mRemoving $(NAME) objs.                               "
 	@rm -rf $(OBJS)
-	@echo -n "\r✅ \e[0;32mSuccessfully removed $(NAME) objs."
+	@echo -n "\r✅ \e[0;32mSuccessfully removed $(NAME) objs.                   "
 	@echo 
 
 fclean: clean
-	@echo -n "\r⏳ \e[0;33mRemoving $(NAME) executable."
+	@echo -n "\r⏳ \e[0;33mRemoving $(NAME) executable.                         "
 	@rm -rf $(OBJS)
-	@echo -n "\r✅ \e[0;32mSuccessfully removed $(NAME) executable."
+	@echo -n "\r✅ \e[0;32mSuccessfully removed $(NAME) executable.             "
 	@echo 
 
 re: fclean $(NAME)
