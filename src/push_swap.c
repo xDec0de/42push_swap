@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:05:02 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/10 10:05:30 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/10 11:04:27 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,14 @@ int	to_stack_send(long *res, char *sign, t_list **a)
 int	main(int argc, char **args)
 {
 	t_list	*a;
-	t_list	*b;
-	int		i;
+	//t_list	*b;
+	//int		i;
 
 	if (argc < 2)
 		exit(ERR_ARGC);
-	check_numeric(argc, args);
+	a = input_to_a(argc, args);
+	(void) a;
+	/*check_numeric(argc, args);
 	i = 1;
 	while (i < argc)
 	{
@@ -54,6 +56,7 @@ int	main(int argc, char **args)
 	}
 	if (check_sorted(a))
 		ps_exit(a, b, ERR_ALREADY_SORTED);
-	sort(&a, &b, check_duplicates(a));
-	ps_exit(a, b, EXIT_SUCCESS);
+	sort(&a, &b, check_duplicates(a));*/
+	//ps_exit(a, b, EXIT_SUCCESS);
+	return (0);
 }

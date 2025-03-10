@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:06:31 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/10 10:04:53 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/10 10:57:16 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,8 @@ void	free_stacks(t_list *a, t_list*b);
  * with a successful execution.
  */
 void	ps_exit(t_list *a, t_list *b, int exit_code);
+
+t_list	*input_to_a(int argc, char **args);
 
 // str_utils.c
 void	ft_bzero(void	*str, size_t n);

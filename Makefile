@@ -6,7 +6,7 @@
 #    By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 10:51:01 by danimart          #+#    #+#              #
-#    Updated: 2025/03/10 10:44:40 by daniema3         ###   ########.fr        #
+#    Updated: 2025/03/10 11:03:17 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ SRCS +=	util/ps_exit.c\
 # > ~ Main project files
 
 SRCS +=	push_swap.c\
-		input_checker.c\
+		input_parser.c\
 		swap_func.c\
 		push_func.c\
 		rotate_func.c\
