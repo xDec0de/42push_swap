@@ -6,7 +6,7 @@
 #    By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/09 20:02:31 by daniema3          #+#    #+#              #
-#    Updated: 2025/03/09 23:55:27 by daniema3         ###   ########.fr        #
+#    Updated: 2025/03/10 16:08:01 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,3 +57,21 @@ echo "Checker result: $CHECKER_RESULT"
 mkdir -p check
 echo "$ARG" > check/numbers
 echo "$OPERATIONS" > check/operations
+
+# Check movement amount if number count is 100 (Subject requirements)
+if ((NUM_COUNT == 100)); then
+	if ((MOVEMENTS > 700)); then
+		echo "Movement amount: KO"
+	else
+		echo "Movement amount: OK"
+	fi
+fi
+
+# Check movement amount if number count is 500 (Subject requirements)
+if ((NUM_COUNT == 500)); then
+	if ((MOVEMENTS > 5500)); then
+		echo "Movement amount: KO"
+	else
+		echo "Movement amount: OK"
+	fi
+fi
