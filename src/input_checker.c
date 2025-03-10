@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 10:57:06 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/10 09:30:42 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/10 12:56:21 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,47 +68,4 @@ void	check_numeric(int argc, char **a)
 			error(4);
 		i++;
 	}
-}
-
-int	check_sorted(t_list *a)
-{
-	int	last;
-
-	while (a->next)
-	{
-		last = a->content;
-		if (a->next->content < last)
-			return (0);
-		a = a->next;
-	}
-	return (1);
-}
-
-int	check_duplicates(t_list *a)
-{
-	int		i;
-	int		j;
-	int		*list;
-	int		size;
-
-	size = ft_lstsize(a);
-	if (size <= 1)
-		error(2);
-	list = ft_calloc(size, sizeof(int));
-	i = 0;
-	while (a)
-	{
-		j = 0;
-		list[i] = a->content;
-		while (j <= i)
-		{
-			if (list[j] == a->content && j != i)
-				error(1);
-			j++;
-		}
-		i++;
-		a = a->next;
-	}
-	free(list);
-	return (size);
 }

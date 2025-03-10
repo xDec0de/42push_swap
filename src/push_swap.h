@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:06:31 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/10 10:57:16 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/10 13:00:21 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,17 @@ void	free_stacks(t_list *a, t_list*b);
  */
 void	ps_exit(t_list *a, t_list *b, int exit_code);
 
+/*
+ - Input parsing
+ */
+
 t_list	*input_to_a(int argc, char **args);
+
+/*
+ - Sorting
+ */
+
+bool	check_sorted(t_list *a);
 
 // str_utils.c
 void	ft_bzero(void	*str, size_t n);
@@ -129,12 +139,6 @@ t_list	*ft_lstmin_unmod(t_list *lst);
 void	simplify_stack(t_list **a, int size);
 int		get_div_size(int size);
 void	lowest_a_to_b(t_list **a, t_list **b);
-
-// input_checker.c
-void	to_stack_check(const char *str, t_list **a);
-void	check_numeric(int argc, char **a);
-int		check_sorted(t_list *a);
-int		check_duplicates(t_list *a);
 
 // swap_func.c
 int		swap_a(t_list **a, int print);
@@ -197,5 +201,8 @@ void	*ps_malloc(int size);
 
 /** Error: Provided input is already sorted. */
 # define ERR_ALREADY_SORTED 4
+
+/** Error: Input contains duplicate numbers */
+# define ERR_DUPLICATES 5
 
 #endif

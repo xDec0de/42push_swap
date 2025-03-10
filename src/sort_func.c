@@ -6,11 +6,25 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 14:29:49 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/10 03:15:28 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/10 12:52:58 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+bool	check_sorted(t_list *a)
+{
+	int	last;
+
+	while (a->next)
+	{
+		last = a->content;
+		if (a->next->content < last)
+			return (false);
+		a = a->next;
+	}
+	return (true);
+}
 
 void	sort_three(t_list **a)
 {

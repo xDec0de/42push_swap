@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 09:37:14 by daniema3          #+#    #+#             */
-/*   Updated: 2025/03/10 12:35:48 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/10 13:01:58 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,34 @@ t_list	*arg_to_lst(char *arg)
 	return (ps_lst_init(content, NULL));
 }
 
+void	check_duplicates(t_list *a)
+{
+	int		i;
+	int		j;
+	int		*list;
+	int		size;
+
+	size = ft_lstsize(a);
+	if (size <= 1)
+		ps_exit(a, NULL, ERR_ALREADY_SORTED);
+	list = ft_calloc(size, sizeof(int)); // TODO: Leaks, iterating with a tmp pointer should work.
+	i = 0;
+	while (a)
+	{
+		j = 0;
+		list[i] = a->content;
+		while (j <= i)
+		{
+			if (list[j] == a->content && j != i)
+				ps_exit(a, NULL, ERR_DUPLICATES);
+			j++;
+		}
+		i++;
+		a = a->next;
+	}
+	free(list);
+}
+
 t_list *input_to_a(int argc, char **args)
 {
 	int			i;
@@ -66,6 +94,8 @@ t_list *input_to_a(int argc, char **args)
 		tmp = tmp->next;
 		i++;
 	}
-	ps_exit(a, NULL, EXIT_SUCCESS);
+	check_duplicates(a);
+	if (check_sorted(a))
+		ps_exit(a, NULL, ERR_ALREADY_SORTED);
 	return (a);
 }
