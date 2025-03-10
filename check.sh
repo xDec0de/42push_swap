@@ -6,7 +6,7 @@
 #    By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/09 20:02:31 by daniema3          #+#    #+#              #
-#    Updated: 2025/03/10 16:44:53 by daniema3         ###   ########.fr        #
+#    Updated: 2025/03/10 16:54:17 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,10 +51,12 @@ CHECKER_RESULT=$(echo "$OPERATIONS" | ./checker_linux $ARG)
 
 printf "\e[1;34mNumber amount\e[0;30m: \e[1;35m$NUM_COUNT\e[0m\n"
 
-if ((CHECKER_RESULT == "OK")); then
-	printf "\e[1;34mChecker result\e[0;30m: \e[1;32mOK\e[0m\n"
+if [ "$CHECKER_RESULT" == "OK" ]; then
+	printf "\e[1;34mChecker result\e[0;30m: \e[1;32m$CHECKER_RESULT\e[0m\n"
+elif [ "$CHECKER_RESULT" == "KO" ]; then
+	printf "\e[1;34mChecker result\e[0;30m: \e[1;31m$CHECKER_RESULT\e[0m\n"
 else
-	printf "\e[1;34mChecker result\e[0;30m: \e[1;31mKO\e[0m\n"
+	printf "\e[1;34mChecker result\e[0;30m: \e[1;31mERROR\e[0m\n"
 fi
 
 # Generate files for the online visualizator
