@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 09:37:14 by daniema3          #+#    #+#             */
-/*   Updated: 2025/03/10 13:01:58 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/10 15:35:34 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_list	*arg_to_lst(char *arg)
 	content = ps_atoi(arg);
 	if (content == LONG_MIN)
 		ps_exit(get_a(NULL), NULL, ERR_INPUT_NOT_NUMERIC);
-	return (ps_lst_init(content, NULL));
+	return (ps_lstinit(content, NULL));
 }
 
 void	check_duplicates(t_list *a)
@@ -57,7 +57,7 @@ void	check_duplicates(t_list *a)
 	int		*list;
 	int		size;
 
-	size = ft_lstsize(a);
+	size = ps_lstsize(a);
 	if (size <= 1)
 		ps_exit(a, NULL, ERR_ALREADY_SORTED);
 	list = ft_calloc(size, sizeof(int)); // TODO: Leaks, iterating with a tmp pointer should work.

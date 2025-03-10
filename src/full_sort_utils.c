@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   full_sort_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 17:40:30 by danimart          #+#    #+#             */
-/*   Updated: 2022/05/25 18:08:30 by danimart         ###   ########.fr       */
+/*   Updated: 2025/03/10 15:43:15 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,11 @@ void	send_b_easiest(t_list **a, t_list **b, int min, int max)
 {
 	int	easiest;
 
-	easiest = get_easiest(*a, min, max, ft_lstsize(*a));
+	easiest = get_easiest(*a, min, max, ps_lstsize(*a));
 	while (easiest != -1)
 	{
-		send_value_to_b(a, b, easiest, ft_lstsize(*a));
-		easiest = get_easiest(*a, min, max, ft_lstsize(*a));
+		send_value_to_b(a, b, easiest, ps_lstsize(*a));
+		easiest = get_easiest(*a, min, max, ps_lstsize(*a));
 	}
 }
 
@@ -120,7 +120,7 @@ void	send_b_to_a(t_list **a, t_list **b)
 	}
 	if (highest != -1)
 	{
-		send_value_to_a(a, b, highest, ft_lstsize(*b));
+		send_value_to_a(a, b, highest, ps_lstsize(*b));
 		send_b_to_a(a, b);
 	}
 }

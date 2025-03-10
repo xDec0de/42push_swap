@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 19:12:52 by danimart          #+#    #+#             */
-/*   Updated: 2022/05/25 17:48:22 by danimart         ###   ########.fr       */
+/*   Updated: 2025/03/10 15:42:13 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	lowest_a_to_b(t_list **a, t_list **b)
 	int	i;
 
 	lowpos = get_low_pos(a);
-	asize = ft_lstsize(*a);
+	asize = ps_lstsize(*a);
 	if (lowpos == 2)
 		swap_a(a, 1);
 	else if (lowpos > (asize / 2))

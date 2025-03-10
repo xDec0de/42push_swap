@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 14:29:49 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/10 12:52:58 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/10 15:37:38 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,11 @@ void	sort_all(t_list **a, t_list **b, int size)
 	send_b_to_a(a, b);
 }
 
-void	sort(t_list **a, t_list **b, int size)
+void	sort(t_list **a, t_list **b)
 {
+	int	size;
+
+	size = ps_lstsize(*a);
 	if (size == 2)
 		swap_a(a, 1);
 	if (size == 3)

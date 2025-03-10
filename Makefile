@@ -6,7 +6,7 @@
 #    By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 10:51:01 by danimart          #+#    #+#              #
-#    Updated: 2025/03/10 11:03:17 by daniema3         ###   ########.fr        #
+#    Updated: 2025/03/10 15:34:33 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ OBJ_DIR = ./objs
 
 # > ~ List utilities
 
-SRCS =	util/lst/ps_lst_init.c
+SRCS =	util/lst/ps_lstinit.c\
+		util/lst/ps_lstsize.c
 
 # > ~ General utilities
 

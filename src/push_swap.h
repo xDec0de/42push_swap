@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:06:31 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/10 13:00:21 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/10 14:51:10 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,9 @@ t_list	*get_b(t_list *init);
  * @return A new `t_list` initialized with the default values
  * and `next` set as the next element of the list.
  */
-t_list	*ps_lst_init(int content, t_list *next);
+t_list	*ps_lstinit(int content, t_list *next);
+
+int		ps_lstsize(t_list *lst);
 
 /*
  - Exit utility
@@ -129,8 +131,6 @@ void	ft_bzero(void	*str, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 
 // list_utils.c
-t_list	*ft_lstnew(int content);
-int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_lstmin_unmod(t_list *lst);
@@ -160,7 +160,7 @@ int		rev_rotate_b(t_list **b, int print);
 int		rev_rotate_ab(t_list **a, t_list **b);
 
 // sort_func.c
-void	sort(t_list **a, t_list **b, int size);
+void	sort(t_list **a, t_list **b);
 void	sort_three(t_list **a);
 void	sort_five(t_list **a, t_list **b, int size);
 void	sort_all(t_list **a, t_list **b, int size);
