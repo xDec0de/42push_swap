@@ -6,17 +6,23 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:06:31 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/10 03:25:46 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/10 03:29:51 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+/* unistd - Used for write */
 # include <unistd.h>
+
+/* stdlib - Used for malloc */
 # include <stdlib.h>
-# include <stddef.h>
+
+/* limits - Used for min/max value macros */
 # include <limits.h>
+
+/* stdbool - Used for the bool type */
 # include <stdbool.h>
 
 typedef struct s_list
