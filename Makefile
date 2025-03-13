@@ -6,7 +6,7 @@
 #    By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 10:51:01 by danimart          #+#    #+#              #
-#    Updated: 2025/03/13 16:45:00 by daniema3         ###   ########.fr        #
+#    Updated: 2025/03/13 20:09:50 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,13 +73,13 @@ $(NAME): $(OBJS)
 
 clean:
 	@echo -n "\r⏳ \e[0;33mRemoving $(NAME) objs.                               "
-	@rm -rf $(OBJS)
+	@rm -rf $(OBJ_DIR)
 	@echo -n "\r✅ \e[0;32mSuccessfully removed $(NAME) objs.                   "
 	@echo 
 
 fclean: clean
 	@echo -n "\r⏳ \e[0;33mRemoving $(NAME) executable.                         "
-	@rm -rf $(OBJS)
+	@rm -rf $(NAME)
 	@echo -n "\r✅ \e[0;32mSuccessfully removed $(NAME) executable.             "
 	@echo 
 
