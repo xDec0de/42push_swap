@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 17:40:30 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/13 17:18:29 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/13 19:25:12 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,18 @@ int	get_easiest(t_list *lst, int min, int max, int size)
 	return (res);
 }
 
+void	check_rotate(t_list **b)
+{
+	if (ps_lstsize(*b) < 10)
+		return ;
+	if (ft_lstlast(*b)->content < (*b)->content)
+		rotate_b(b, PRINT);
+}
+
 void	send_value_to_b(t_list **a, t_list **b, int value, int size)
 {
 	int		pos;
 	t_list	*tmp;
-	static bool rotate = false;
 
 	tmp = *a;
 	pos = 0;
@@ -66,9 +73,7 @@ void	send_value_to_b(t_list **a, t_list **b, int value, int size)
 			pos -= rotate_a(a, PRINT);
 		push_b(a, b);
 	}
-	if (rotate)
-		rotate_b(b, PRINT);
-	rotate = !rotate;
+	check_rotate(b);
 }
 
 void	send_b_easiest(t_list **a, t_list **b, int min, int max)
