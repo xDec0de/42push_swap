@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 16:47:18 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/10 14:22:52 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/13 16:50:14 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,18 @@ t_list	*ft_lstmin_unmod(t_list *lst)
 	min = NULL;
 	while (lst != NULL)
 	{
-		if (min == NULL && lst->modified == 1)
+		if (min == NULL && lst->modified)
 		{
 			lst = lst->next;
 			continue ;
 		}
 		else if (min == NULL)
 			min = lst;
-		else if ((min->content > lst->content) && lst->modified == 0)
+		else if ((min->content > lst->content) && !lst->modified)
 			min = lst;
 		lst = lst->next;
 	}
-	if (min->modified == 1)
+	if (min->modified)
 		return (NULL);
 	return (min);
 }
