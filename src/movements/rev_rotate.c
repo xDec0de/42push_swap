@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   rev_rotate_func.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 16:02:26 by danimart          #+#    #+#             */
-/*   Updated: 2022/05/25 17:22:55 by danimart         ###   ########.fr       */
+/*   Updated: 2025/03/13 15:39:53 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	rev_rotate_a(t_list **a, int print)
 {

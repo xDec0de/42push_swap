@@ -6,7 +6,7 @@
 #    By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 10:51:01 by danimart          #+#    #+#              #
-#    Updated: 2025/03/10 15:34:33 by daniema3         ###   ########.fr        #
+#    Updated: 2025/03/13 15:41:41 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,16 +30,19 @@ SRCS +=	util/ps_exit.c\
 		util/ps_malloc.c\
 		util/stack_provider.c\
 
+# > ~ Movements
+
+SRCS +=	movements/push.c\
+		movements/rev_rotate.c\
+		movements/rotate.c\
+		movements/swap.c
+
 # > ~ Main project files
 
 SRCS +=	push_swap.c\
 		input_parser.c\
-		swap_func.c\
-		push_func.c\
-		rotate_func.c\
 		str_utils.c\
 		list_utils.c\
-		rev_rotate_func.c\
 		sort_func.c\
 		sort_utils.c\
 		full_sort_utils.c

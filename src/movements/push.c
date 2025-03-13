@@ -6,11 +6,11 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 16:17:25 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/10 15:36:54 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/13 15:39:45 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	push_a(t_list **a, t_list **b)
 {
