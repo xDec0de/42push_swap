@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 14:29:49 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/13 16:36:48 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/13 16:38:18 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ bool	check_sorted(t_list *a)
 {
 	int	last;
 
-	while (a->next)
+	while (a->next != NULL)
 	{
 		last = a->content;
 		if (a->next->content < last)

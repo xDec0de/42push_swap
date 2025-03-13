@@ -6,7 +6,7 @@
 #    By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 10:51:01 by danimart          #+#    #+#              #
-#    Updated: 2025/03/13 15:41:41 by daniema3         ###   ########.fr        #
+#    Updated: 2025/03/13 16:45:00 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,6 @@ SRCS +=	movements/push.c\
 
 SRCS +=	push_swap.c\
 		input_parser.c\
-		str_utils.c\
 		list_utils.c\
 		sort_func.c\
 		sort_utils.c\
