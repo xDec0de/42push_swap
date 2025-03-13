@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 14:29:49 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/10 15:37:38 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/13 16:36:48 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,21 +36,21 @@ void	sort_three(t_list **a)
 	s = (*a)->next->content;
 	t = (*a)->next->next->content;
 	if (f > s && s < t && f < t)
-		swap_a(a, 1);
+		swap_a(a, PRINT);
 	else if (f > s && s > t && t < f)
 	{
-		swap_a(a, 1);
-		rev_rotate_a(a, 1);
+		swap_a(a, PRINT);
+		rev_rotate_a(a, PRINT);
 	}
 	else if (f > s && s < t && f > t)
-		rotate_a(a, 1);
+		rotate_a(a, PRINT);
 	else if (f < s && s > t && t > f)
 	{
-		swap_a(a, 1);
-		rotate_a(a, 1);
+		swap_a(a, PRINT);
+		rotate_a(a, PRINT);
 	}
 	else if (f > t)
-		rev_rotate_a(a, 1);
+		rev_rotate_a(a, PRINT);
 }
 
 void	sort_five(t_list **a, t_list **b, int size)
@@ -86,7 +86,7 @@ void	sort(t_list **a, t_list **b)
 
 	size = ps_lstsize(*a);
 	if (size == 2)
-		swap_a(a, 1);
+		swap_a(a, PRINT);
 	if (size == 3)
 		sort_three(a);
 	if (size == 5 || size == 4)

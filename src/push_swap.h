@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:06:31 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/10 14:51:10 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/13 16:34:38 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,38 @@ t_list	*input_to_a(int argc, char **args);
 
 bool	check_sorted(t_list *a);
 
+/*
+ - Movements - Push
+ */
+
+
+int		push_a(t_list **a, t_list **b);
+int		push_b(t_list **a, t_list **b);
+
+/*
+ - Movements - Reverse Rotate
+ */
+
+int		rev_rotate_a(t_list **a, bool print);
+int		rev_rotate_b(t_list **b, bool print);
+int		rev_rotate_ab(t_list **a, t_list **b);
+
+/*
+ - Movements - Rotate
+ */
+
+int		rotate_a(t_list **a, bool print);
+int		rotate_b(t_list **a, bool print);
+int		rotate_ab(t_list **a, t_list **b);
+
+/*
+ - Movements - Swap
+ */
+
+int		swap_a(t_list **a, bool print);
+int		swap_b(t_list **b, bool print);
+int		swap_ab(t_list **a, t_list **b);
+
 // str_utils.c
 void	ft_bzero(void	*str, size_t n);
 void	*ft_calloc(size_t count, size_t size);
@@ -139,25 +171,6 @@ t_list	*ft_lstmin_unmod(t_list *lst);
 void	simplify_stack(t_list **a, int size);
 int		get_div_size(int size);
 void	lowest_a_to_b(t_list **a, t_list **b);
-
-// swap_func.c
-int		swap_a(t_list **a, int print);
-int		swap_b(t_list **b, int print);
-int		swap_ab(t_list **a, t_list **b);
-
-// push_func.c
-int		push_a(t_list **a, t_list **b);
-int		push_b(t_list **a, t_list **b);
-
-// rotate_func.c
-int		rotate_a(t_list **a, int print);
-int		rotate_b(t_list **a, int print);
-int		rotate_ab(t_list **a, t_list **b);
-
-// rev_rotate_func.c
-int		rev_rotate_a(t_list **a, int print);
-int		rev_rotate_b(t_list **b, int print);
-int		rev_rotate_ab(t_list **a, t_list **b);
 
 // sort_func.c
 void	sort(t_list **a, t_list **b);
@@ -187,7 +200,14 @@ bool	ps_isdigit(char ch);
 void	*ps_malloc(int size);
 
 /* 
- - Exit / error codes
+ - Macros - Print status
+ */
+
+# define PRINT true
+# define NO_PRINT false
+
+/* 
+ - Macros - Exit / error codes
  */
 
 /** Error: Invalid argument count. No numbers to sort were provided. */

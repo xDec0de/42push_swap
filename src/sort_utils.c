@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 19:12:52 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/10 15:42:13 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/13 16:35:46 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,15 +74,15 @@ void	lowest_a_to_b(t_list **a, t_list **b)
 	lowpos = get_low_pos(a);
 	asize = ps_lstsize(*a);
 	if (lowpos == 2)
-		swap_a(a, 1);
+		swap_a(a, PRINT);
 	else if (lowpos > (asize / 2))
 		while (lowpos <= asize--)
-			rev_rotate_a(a, 1);
+			rev_rotate_a(a, PRINT);
 	else
 	{
 		i = 1;
 		while (lowpos > i++)
-			rotate_a(a, 1);
+			rotate_a(a, PRINT);
 	}
 	push_b(a, b);
 }
