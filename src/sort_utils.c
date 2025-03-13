@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 19:12:52 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/13 16:50:26 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/13 18:38:12 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	get_div_size(int size)
 	else if (size <= 100)
 		return (20);
 	else
-		return (50);
+		return (40);
 }
 
 void	simplify_stack(t_list **a, int size)
