@@ -15,6 +15,8 @@ if ! [[ "$NUM_COUNT" =~ ^[0-9]+$ ]]; then
 	exit 2
 fi
 
+USE_VALGRIND=${3}
+
 numbers=()
 
 # Function to check if the numbers array is sorted
@@ -70,6 +72,17 @@ fi
 mkdir -p check
 echo "$ARG" > check/numbers
 echo "$OPERATIONS" > check/operations
+
+# Call valgrind, generate log & print
+if echo $* | grep -e "-vg" -q; then
+	printf "\e[1;34mValgrind check\e[0;30m: "
+	valgrind ./push_swap $ARG 1>/dev/null 2>check/valgrind
+	if cat check/valgrind | grep -q 'no leaks are possible'; then
+		printf "\e[1;32mOK\e[0m\n"
+	else
+		printf "\e[1;31mKO \e[1;30m(\e[1;33mSee check/valgrind\e[1;30m)\e[0m\n"
+	fi
+fi
 
 # Set maximum amount of numbers as per subject requirements
 MAX_MOVEMENTS=0
