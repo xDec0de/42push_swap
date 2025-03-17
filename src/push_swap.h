@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:06:31 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/17 16:09:53 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/17 16:17:28 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,6 @@ typedef struct s_list
 	bool			modified;
 	struct s_list	*next;
 }				t_list;
-
-// push_swap.c
-void	error(int code);
-int		to_stack_send(long *res, char *sign, t_list **a);
 
 /*
  - Stack provider
