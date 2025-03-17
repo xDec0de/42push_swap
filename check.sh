@@ -15,8 +15,6 @@ if ! [[ "$NUM_COUNT" =~ ^[0-9]+$ ]]; then
 	exit 2
 fi
 
-USE_VALGRIND=${3}
-
 numbers=()
 
 # Function to check if the numbers array is sorted
