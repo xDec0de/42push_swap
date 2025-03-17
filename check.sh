@@ -86,7 +86,9 @@ fi
 
 # Set maximum amount of numbers as per subject requirements
 MAX_MOVEMENTS=0
-if ((NUM_COUNT == 100)); then
+if ((NUM_COUNT == 5)); then
+	MAX_MOVEMENTS=12
+elif ((NUM_COUNT == 100)); then
 	MAX_MOVEMENTS=700
 elif ((NUM_COUNT == 500)); then
 	MAX_MOVEMENTS=5500
