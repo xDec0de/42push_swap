@@ -34,6 +34,9 @@ max_number`. Arguments are optional, but this is what they do:
 - number_amount: The amount of numbers to generate (Default: 10)
 - max_number: The maximum number allowed on the random list (Default: 50000)
 
+**Tip**: To infinitely run the script and see average results yourself, you
+can use a loop like `while true; do ./check.sh 5; sleep 0.3; done`
+
 ### Valgrind check
 
 This script will also optionally run Valgrind. To do so, you just need to
