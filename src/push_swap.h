@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:06:31 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/17 16:17:28 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/17 16:53:01 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,17 +123,11 @@ void	ps_exit(t_list *a, t_list *b, int exit_code);
 t_list	*input_to_a(int argc, char **args);
 
 /*
- - Sorting
- */
-
-bool	check_sorted(t_list *a);
-
-/*
  - Movements - Push
  */
 
-
 int		push_a(t_list **a, t_list **b);
+
 int		push_b(t_list **a, t_list **b);
 
 /*
@@ -141,7 +135,9 @@ int		push_b(t_list **a, t_list **b);
  */
 
 int		rev_rotate_a(t_list **a, bool print);
+
 int		rev_rotate_b(t_list **b, bool print);
+
 int		rev_rotate_ab(t_list **a, t_list **b);
 
 /*
@@ -149,7 +145,9 @@ int		rev_rotate_ab(t_list **a, t_list **b);
  */
 
 int		rotate_a(t_list **a, bool print);
+
 int		rotate_b(t_list **a, bool print);
+
 int		rotate_ab(t_list **a, t_list **b);
 
 /*
@@ -157,27 +155,10 @@ int		rotate_ab(t_list **a, t_list **b);
  */
 
 int		swap_a(t_list **a, bool print);
+
 int		swap_b(t_list **b, bool print);
+
 int		swap_ab(t_list **a, t_list **b);
-
-// str_utils.c
-void	ft_bzero(void	*str, size_t n);
-void	*ft_calloc(size_t count, size_t size);
-
-// sort_utils.c
-void	simplify_stack(t_list **a, int size);
-int		get_div_size(int size);
-void	lowest_a_to_b(t_list **a, t_list **b);
-
-// sort_func.c
-void	sort(t_list **a, t_list **b);
-void	sort_three(t_list **a);
-void	sort_five(t_list **a, t_list **b, int size);
-void	sort_all(t_list **a, t_list **b, int size);
-
-// full_sort_utils.c
-void	send_b_easiest(t_list **a, t_list **b, int min, int max);
-void	send_b_to_a(t_list **a, t_list **b);
 
 /*
  - Utils
@@ -195,6 +176,36 @@ bool	ps_isdigit(char ch);
  * @return A pointer to the allocated memory.
  */
 void	*ps_malloc(int size);
+
+/*
+ - Sorting - Full
+ */
+
+void	full_sort(t_list **a, t_list **b, int size);
+
+int		get_pos(t_list *lst, int value);
+
+void	simplify_stack(t_list **a, int size);
+
+void	send_b_easiest(t_list **a, t_list **b, int min, int max);
+
+void	send_b_to_a(t_list **a, t_list **b);
+
+/*
+ - Sorting - Small
+ */
+
+void	sort_three(t_list **a);
+
+void	sort_five(t_list **a, t_list **b, int size);
+
+/*
+ - Sorting - General
+ */
+
+bool	check_sorted(t_list *a);
+
+void	sort(t_list **a, t_list **b);
 
 /* 
  - Macros - Print status

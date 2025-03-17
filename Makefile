@@ -6,7 +6,7 @@
 #    By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 10:51:01 by danimart          #+#    #+#              #
-#    Updated: 2025/03/17 16:11:28 by daniema3         ###   ########.fr        #
+#    Updated: 2025/03/17 16:56:01 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,13 +40,24 @@ SRCS +=	movements/push.c\
 		movements/rotate.c\
 		movements/swap.c
 
+# > ~ Sorting - General
+
+SRCS +=	sort/check_sorted.c\
+		sort/small_sort.c\
+		sort/sorter.c
+
+# > ~ Sorting - Full
+
+SRCS +=	sort/full/full_sort.c\
+		sort/full/get_pos.c\
+		sort/full/send_to_a.c\
+		sort/full/send_to_b.c\
+		sort/full/simplify_stack.c
+
 # > ~ Main project files
 
-SRCS +=	push_swap.c\
-		input_parser.c\
-		sort_func.c\
-		sort_utils.c\
-		full_sort_utils.c
+SRCS +=	input_parser.c\
+		push_swap.c
 
 SRCS := $(addprefix $(SRC_DIR)/, $(SRCS))
 
@@ -56,7 +67,7 @@ SRCS_AMOUNT = $(words $(SRCS))
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
-	@echo -n "\r⏳ \e[0;33mCompiling $(notdir $<)                               "
+	@echo -n "\r⏳ \e[0;33mCompiling $(notdir $<)\e[0m                          "
 	@{\
 		ERR=$$( ($(CC) $(CFLAGS) -c $< -o $@) 2>&1 );\
 		if [ $$? -ne 0 ]; then\
