@@ -1,37 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_utils.c                                       :+:      :+:    :+:   */
+/*   ps_lstmin_unmod.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/16 16:47:18 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/13 16:50:14 by daniema3         ###   ########.fr       */
+/*   Created: 2025/03/17 16:07:35 by daniema3          #+#    #+#             */
+/*   Updated: 2025/03/17 16:08:02 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
-t_list	*ft_lstlast(t_list *lst)
-{
-	if (!lst)
-		return (NULL);
-	while (lst->next != NULL)
-		lst = lst->next;
-	return (lst);
-}
-
-void	ft_lstadd_back(t_list **lst, t_list *new)
-{
-	if (lst == NULL)
-		return ;
-	if (*lst == NULL)
-		*lst = new;
-	else
-		ft_lstlast(*lst)->next = new;
-}
-
-t_list	*ft_lstmin_unmod(t_list *lst)
+t_list	*ps_lstmin_unmod(t_list *lst)
 {
 	t_list	*min;
 

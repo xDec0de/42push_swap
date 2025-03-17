@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 16:02:26 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/13 16:33:32 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/17 16:10:53 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	rev_rotate_a(t_list **a, bool print)
 	if (*a != NULL && (*a)->next != NULL)
 	{
 		tmp = *a;
-		last = ft_lstlast(*a);
+		last = ps_lstlast(*a);
 		while (tmp->next->next)
 			tmp = tmp->next;
 		tmp->next = NULL;
@@ -42,7 +42,7 @@ int	rev_rotate_b(t_list **b, bool print)
 	if (*b != NULL && (*b)->next != NULL)
 	{
 		tmp = *b;
-		last = ft_lstlast(*b);
+		last = ps_lstlast(*b);
 		while (tmp->next->next)
 			tmp = tmp->next;
 		tmp->next = NULL;

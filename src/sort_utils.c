@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 19:12:52 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/13 18:38:12 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/17 16:15:55 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	simplify_stack(t_list **a, int size)
 	i = 0;
 	while (i < size)
 	{
-		to_modify = ft_lstmin_unmod(*a);
+		to_modify = ps_lstmin_unmod(*a);
 		if (to_modify == NULL)
 			break ;
 		to_modify->content = i;

@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:06:31 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/13 16:34:38 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/17 16:09:53 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,12 @@ t_list	*ps_lstinit(int content, t_list *next);
 
 int		ps_lstsize(t_list *lst);
 
+t_list	*ps_lstlast(t_list *lst);
+
+void	ps_lstadd_back(t_list **lst, t_list *new);
+
+t_list	*ps_lstmin_unmod(t_list *lst);
+
 /*
  - Exit utility
  */
@@ -161,11 +167,6 @@ int		swap_ab(t_list **a, t_list **b);
 // str_utils.c
 void	ft_bzero(void	*str, size_t n);
 void	*ft_calloc(size_t count, size_t size);
-
-// list_utils.c
-t_list	*ft_lstlast(t_list *lst);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-t_list	*ft_lstmin_unmod(t_list *lst);
 
 // sort_utils.c
 void	simplify_stack(t_list **a, int size);

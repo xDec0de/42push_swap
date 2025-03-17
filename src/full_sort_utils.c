@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 17:40:30 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/17 16:01:36 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/17 16:16:11 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	send_value_to_b(t_list **a, t_list **b, int value, int size)
 	push_b(a, b);
 	if (ps_lstsize(*b) < 10)
 		return ;
-	if (ft_lstlast(*b)->content < (*b)->content)
+	if (ps_lstlast(*b)->content < (*b)->content)
 		rotate_b(b, PRINT);
 }
 

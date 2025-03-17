@@ -6,7 +6,7 @@
 #    By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 10:51:01 by danimart          #+#    #+#              #
-#    Updated: 2025/03/13 20:09:50 by daniema3         ###   ########.fr        #
+#    Updated: 2025/03/17 16:11:28 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,10 @@ OBJ_DIR = ./objs
 
 # > ~ List utilities
 
-SRCS =	util/lst/ps_lstinit.c\
+SRCS =	util/lst/ps_lstadd_back.c\
+		util/lst/ps_lstinit.c\
+		util/lst/ps_lstlast.c\
+		util/lst/ps_lstmin_unmod.c\
 		util/lst/ps_lstsize.c
 
 # > ~ General utilities
@@ -41,7 +44,6 @@ SRCS +=	movements/push.c\
 
 SRCS +=	push_swap.c\
 		input_parser.c\
-		list_utils.c\
 		sort_func.c\
 		sort_utils.c\
 		full_sort_utils.c
