@@ -6,7 +6,7 @@
 #    By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 10:51:01 by danimart          #+#    #+#              #
-#    Updated: 2025/03/17 16:56:01 by daniema3         ###   ########.fr        #
+#    Updated: 2025/03/17 18:36:45 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,8 +62,6 @@ SRCS +=	input_parser.c\
 SRCS := $(addprefix $(SRC_DIR)/, $(SRCS))
 
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
-
-SRCS_AMOUNT = $(words $(SRCS))
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
