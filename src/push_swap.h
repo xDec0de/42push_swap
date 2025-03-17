@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:06:31 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/17 16:53:01 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/17 19:27:54 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,8 +126,28 @@ t_list	*input_to_a(int argc, char **args);
  - Movements - Push
  */
 
+/**
+ * @brief The `pa` movement. Takes the first element of stack
+ * `a` and puts it at the top of stack `b`. Does nothing
+ * if `b` is empty.
+ * 
+ * @param a A pointer to stack a.
+ * @param b A pointer to stack b.
+ * 
+ * @return Always 1.
+ */
 int		push_a(t_list **a, t_list **b);
 
+/**
+ * @brief The `pb` movement. Takes the first element of stack
+ * `b` and puts it at the top of stack `a`. Does nothing
+ * if `a` is empty.
+ * 
+ * @param a A pointer to stack a.
+ * @param b A pointer to stack b.
+ * 
+ * @return Always 1.
+ */
 int		push_b(t_list **a, t_list **b);
 
 /*
@@ -154,16 +174,62 @@ int		rotate_ab(t_list **a, t_list **b);
  - Movements - Swap
  */
 
+/**
+ * @brief The `sa` movement. Swaps the first element of
+ * stack `a` with the second element of said stack.
+ * So the first and the second elements swap places.
+ * Does nothing if the stack contains less than two elements.
+ * 
+ * @param a A pointer to stack a.
+ * 
+ * @param print Whether to print the movement or not.
+ * 
+ * @return Always 1.
+ */
 int		swap_a(t_list **a, bool print);
 
+/**
+ * @brief The `sb` movement. Swaps the first element of
+ * stack `b` with the second element of said stack.
+ * So the first and the second elements swap places.
+ * Does nothing if the stack contains less than two elements.
+ * 
+ * @param b A pointer to stack b.
+ * 
+ * @param print Whether to print the movement or not.
+ * 
+ * @return Always 1.
+ */
 int		swap_b(t_list **b, bool print);
 
+/**
+ * @brief The `ss` movement. Executes both `swap_a` and `swap_b`.
+ * Swaps the first and second elements of both stacks, so the
+ * first and second element of each stack switch places.
+ * Does nothing per stack if the stack contains less than two elements.
+ * 
+ * @param a A pointer to stack a.
+ * @param a A pointer to stack a.
+ * 
+ * @param print Whether to print the movement or not.
+ * 
+ * @return Always 1.
+ */
 int		swap_ab(t_list **a, t_list **b);
 
 /*
  - Utils
  */
 
+/**
+ * @brief Checks if the provided `char` is
+ * considered a digit or not.
+ * 
+ * @param ch The `char` to check.
+ * 
+ * @return `true` if `ch` is within the range
+ * of `char` '0' to '9', `false` otherwise.
+ */
 bool	ps_isdigit(char ch);
 
 /**
@@ -181,11 +247,43 @@ void	*ps_malloc(int size);
  - Sorting - Full
  */
 
+/**
+ * @brief Sorting functions for stacks with an amount
+ * higher than 5. This function will use an actual sorting
+ * algorithm to sort all numbers on stack `a`.
+ * 
+ * @param a A pointer to stack a
+ * @param b A pointer to stack b.
+ * @param size The size of stack `a`.
+ */
 void	full_sort(t_list **a, t_list **b, int size);
 
+/**
+ * @brief Get the position of a certain `value` on the
+ * provided `stack`.
+ * 
+ * @param lst The stack to iterate.
+ * @param value The value to search.
+ * 
+ * @return The position of the requested `value` on the
+ * provided `stack`. -1 if the `value` isn't found.
+ */
 int		get_pos(t_list *lst, int value);
 
-void	simplify_stack(t_list **a, int size);
+/**
+ * @brief Simplifies the provided `stack` so numbers follow
+ * an order. The highest number will be `size - 1`, while numbers
+ * in between will be lower by 1 until 0 is reached. So a stack
+ * of size 100 will contain numbers from 0 to 99, respecting
+ * their original values in order.
+ * 
+ * For example, the stack [-10, 5, 99, 31, -6, 0] will be
+ * simplified to [0, 3, 5, 4, 1, 2].
+ * 
+ * @param stack A pointer to the stack to simplify, generally stack a.
+ * @param size The size of the stack to simplify.
+ */
+void	simplify_stack(t_list **stack, int size);
 
 void	send_b_easiest(t_list **a, t_list **b, int min, int max);
 
@@ -195,16 +293,43 @@ void	send_b_to_a(t_list **a, t_list **b);
  - Sorting - Small
  */
 
+/**
+ * @brief Specific function used to sort a stack of 3 numbers.
+ * This function contains the most efficient instructions for
+ * all possible combinations of 3 numbers.
+ * 
+ * @param a A pointer to stack a.
+ */
 void	sort_three(t_list **a);
 
+/**
+ * @brief Specific function used to sort a stack of 4 or 5
+ * numbers.
+ * 
+ * @param a A pointer to stack a.
+ */
 void	sort_five(t_list **a, t_list **b, int size);
 
 /*
  - Sorting - General
  */
 
-bool	check_sorted(t_list *a);
+/**
+ * @brief Checks if a stack is sorted, generally stack a.
+ * 
+ * @param stack A pointer to the first element of the stack to check
+ * 
+ * @return `true` if the `stack` is sorted, `false` otherwise.
+ */
+bool	check_sorted(t_list *stack);
 
+/**
+ * @brief The main sorting function. This function will call any
+ * fuctions that are best suited to sort the provided stacks.
+ * 
+ * @param a A pointer to stack a.
+ * @param b A pointer to stack b.
+ */
 void	sort(t_list **a, t_list **b);
 
 /* 
