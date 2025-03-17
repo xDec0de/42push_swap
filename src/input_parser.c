@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 09:37:14 by daniema3          #+#    #+#             */
-/*   Updated: 2025/03/10 17:55:45 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/17 18:52:27 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ long long	ps_atoi(const char *str)
 t_list	*arg_to_lst(char *arg)
 {
 	long long	content;
-	
+
 	content = ps_atoi(arg);
 	if (content == LONG_MIN)
 		ps_exit(get_a(NULL), NULL, ERR_INPUT_NOT_NUMERIC);
@@ -67,7 +67,7 @@ void	check_duplicates(t_list *a)
 	}
 }
 
-t_list *input_to_a(int argc, char **args)
+t_list	*input_to_a(int argc, char **args)
 {
 	int			i;
 	t_list		*a;

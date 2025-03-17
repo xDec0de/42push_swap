@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 09:51:54 by daniema3          #+#    #+#             */
-/*   Updated: 2025/03/10 09:52:18 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/17 18:53:05 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,3 @@ void	ps_exit(t_list *a, t_list *b, int exit_code)
 	free_stacks(a, b);
 	exit(exit_code);
 }
-
