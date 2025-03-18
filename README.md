@@ -5,7 +5,7 @@
 
 The `check.sh` script is provided to easily **test** and **debug** push_swap.
 This is **not** a tester, but rather a tool used to see if push_swap is sorting
-numbers correctly. It does the following:
+numbers correctly and efficiently. It does the following:
 
 - Generate a random array of non repeated numbers, saving it on `check/numbers`.
 - Execute push_swap with said array, saving the output on `check/operations`.
@@ -16,7 +16,7 @@ numbers correctly. It does the following:
 Please do not use this script to be lazy on evaluations. You can use it to see
 the amount of movements done by push_swap upon evaluation when you have
 **already checked manually for input errors**. This script is an automation of
-an otherwise manual an tedious work, not an all-in-one solution.
+an otherwise manual and tedious work, not an all-in-one solution.
 
 ### Before you run the script
 
@@ -26,7 +26,7 @@ of your project. The expected name of the checker is **checker_linux**. Changing
 its name will cause the script to fail, as it will attempt to execute it. It
 must also have execution permissions, obviously.
 
-### Script usage
+### Script arguments
 
 You can execute the script as follows: `./check.sh number_amount
 max_number`. Arguments are optional, but this is what they do:
@@ -42,7 +42,7 @@ can use a loop like `while true; do ./check.sh 5; sleep 0.3; done`
 This script will also optionally run Valgrind. To do so, you just need to
 use the `-vg` flag. So for example `./check.sh 100 200 -vg`. This will
 check for leaks on your push_swap execution and will create a log file
-`check/valgrind` with the output provided by valgrind. You obviously need
+(`check/valgrind`) with the output provided by valgrind. You obviously need
 to have valgrind installed on your system to use this feature.
 
 _You should not depend only on this check to see if your program contains
