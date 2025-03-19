@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 09:37:14 by daniema3          #+#    #+#             */
-/*   Updated: 2025/03/17 18:52:27 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/19 16:58:11 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ long long	ps_atoi(const char *str)
 	}
 	if (i == 0)
 		return (LONG_MIN);
-	if (res > INT_MAX)
+	if ((!negative && res > INT_MAX)
+		|| (negative && res > ((long long) INT_MAX + 1)))
 		return (LONG_MIN);
 	if (negative)
 		return (-res);
