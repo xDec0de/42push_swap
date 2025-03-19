@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 11:06:31 by danimart          #+#    #+#             */
-/*   Updated: 2025/03/17 19:27:54 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/03/19 16:29:05 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void	free_stacks(t_list *a, t_list*b);
 /**
  * @brief Handles program exit. Both stacks `a` and `b`
  * are safely freed as specified by `free_stacks`.
- * "Error\\n" will be written on `STDOUT_FILENO` if
+ * "Error\\n" will be written on `STDERR_FILENO` if
  * the `exit_code` requires it.
  * 
  * @param a A pointer to the first element of stack `a`.
